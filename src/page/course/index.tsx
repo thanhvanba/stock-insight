@@ -1,5 +1,4 @@
-import React from "react";
-import { Button, Card, Typography, Row, Col, Image, Tag } from "antd";
+import { Card, Typography, Row, Col, Image, Tag } from "antd";
 import {
   CheckCircleOutlined,
   ClockCircleOutlined,

@@ -2,18 +2,11 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
-import {
-  ArrowRightOutlined,
-  LineChartOutlined,
-  TeamOutlined,
-  ReadOutlined,
-  BarChartOutlined,
-} from "@ant-design/icons";
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 import look2 from "/carousel-1.jpg";
 import look1 from "/carousel-2.jpg";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-import { Button, Typography } from "antd";
 import { Link } from "react-router-dom";
 
 const slides = [

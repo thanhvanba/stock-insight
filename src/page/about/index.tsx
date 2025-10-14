@@ -1,4 +1,4 @@
-import { Row, Col, Typography, Card, Button } from "antd";
+import { Row, Col, Typography, Card } from "antd";
 import {
   ArrowUpOutlined,
   UsergroupAddOutlined,
