@@ -1,23 +1,25 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import HomePage from "../page/home";
+import DynamicContent from "./DynamicContent";
 import AboutPage from "../page/about";
 import BlogPage from "../page/blog";
-import CoursePage from "../page/course";
-import HomePage from "../page/home";
-import PageDetail from "../page/menu/PageDetail";
 import NewsPage from "../page/news";
-import PostDetail from "../page/menu/PostDetail";
-// import other pages as needed
+import CoursePage from "../page/course";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/bai-viet" element={<BlogPage />} />
+      <Route path="/trang-chu" element={<HomePage />} />
       <Route path="/gioi-thieu" element={<AboutPage />} />
+      <Route path="/bai-viet" element={<BlogPage />} />
       <Route path="/tin-tuc" element={<NewsPage />} />
       <Route path="/khoa-hoc" element={<CoursePage />} />
-      <Route path="/posts/:slug" element={<PostDetail />} />
-      <Route path="/pages/:slug" element={<PageDetail />} />
+
+      <Route path="/posts/:slug" element={<Navigate to=".." replace />} />
+      <Route path="/pages/:slug" element={<Navigate to=".." replace />} />
+
+      <Route path="/:slug" element={<DynamicContent />} />
+      {/* <Route path="*" element={<Navigate to="/404" replace />} /> */}
     </Routes>
   );
 }

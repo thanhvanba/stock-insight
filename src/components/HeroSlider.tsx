@@ -25,7 +25,7 @@ export default function ShopTheLookSlider() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="relative w-full h-[90vh]">
+    <div className="relative w-full h-[100vh]">
       <Swiper
         spaceBetween={0}
         centeredSlides={true}

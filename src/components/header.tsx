@@ -108,7 +108,7 @@ export default function Header() {
 
     return roots.map((menu) => {
       const link = rewriteLegacyPath(menu.slug ?? menu.url, menu.type);
-
+      console.log(link);
       if (link.isExternal) {
         return {
           key: menu._id,
