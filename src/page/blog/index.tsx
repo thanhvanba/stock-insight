@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Input,
   Card,
@@ -8,86 +8,77 @@ import {
   Typography,
   Pagination,
   Image,
+  Spin,
+  message,
 } from "antd";
 import { SearchOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-const { Text } = Typography;
+import { adminAPI } from "../../service";
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 export default function BlogPage() {
-  const categories = [
-    "Tất cả",
-    "Phân tích kỹ thuật",
-    "Chiến lược đầu tư",
-    "Tâm lý giao dịch",
-    "Tin tức thị trường",
-  ];
+  const [blogs, setBlogs] = useState<any[]>([]);
+  console.log("🚀 ~ BlogPage ~ blogs:", blogs);
+  const [filteredBlogs, setFilteredBlogs] = useState<any[]>([]);
+  const [categories, setCategories] = useState<string[]>(["Tất cả"]);
   const [selectedCategory, setSelectedCategory] = useState("Tất cả");
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  
+  // 🔹 Lấy danh sách blog từ API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
 
-  const articles = [
-    {
-      id: 1,
-      title: "Cách sử dụng RSI để xác định điểm mua bán hiệu quả",
-      description:
-        "RSI là một trong những chỉ báo kỹ thuật phổ biến nhất. Bài viết này sẽ hướng dẫn bạn cách sử dụng RSI một cách chính xác...",
-      category: "Phân tích kỹ thuật",
-      date: "10/11/2025",
-      image: "/rsi-indicator-chart.png",
-    },
-    {
-      id: 2,
-      title: "Chiến lược giao dịch theo xu hướng cho người mới",
-      description:
-        "Giao dịch theo xu hướng là một trong những chiến lược đơn giản và hiệu quả nhất. Tìm hiểu cách áp dụng chiến lược này...",
-      category: "Chiến lược đầu tư",
-      date: "09/11/2025",
-      image: "/trend-following-strategy-chart.jpg",
-    },
-    {
-      id: 3,
-      title: "Tâm lý nhà đầu tư và cách kiểm soát cảm xúc",
-      description:
-        "Cảm xúc là kẻ thù lớn nhất của nhà đầu tư. Học cách nhận diện và kiểm soát cảm xúc để đưa ra quyết định đúng đắn...",
-      category: "Tâm lý giao dịch",
-      date: "08/11/2025",
-      image: "/investor-psychology-concept.jpg",
-    },
-    {
-      id: 4,
-      title: "Phân tích dòng tiền thông minh trong thị trường chứng khoán",
-      description:
-        "Dòng tiền thông minh là chìa khóa để xác định cổ phiếu có tiềm năng. Tìm hiểu cách theo dõi và phân tích dòng tiền...",
-      category: "Phân tích kỹ thuật",
-      date: "07/11/2025",
-      image: "/money-flow-analysis-chart.jpg",
-    },
-    {
-      id: 5,
-      title: "Quản lý vốn: Bí quyết sống còn của nhà đầu tư",
-      description:
-        "Quản lý vốn đúng cách giúp bạn bảo vệ tài khoản và tối đa hóa lợi nhuận. Khám phá các nguyên tắc quản lý vốn hiệu quả...",
-      category: "Chiến lược đầu tư",
-      date: "06/11/2025",
-      image: "/capital-management-concept.jpg",
-    },
-    {
-      id: 6,
-      title: "Nhận định thị trường tuần này: Cơ hội và rủi ro",
-      description:
-        "Phân tích tổng quan về diễn biến thị trường trong tuần qua và dự báo xu hướng trong tuần tới...",
-      category: "Tin tức thị trường",
-      date: "05/11/2025",
-      image: "/stock-market-overview-chart.jpg",
-    },
-  ];
+        // Lấy danh sách bài viết
+        const blogRes = await adminAPI.getBlogs();
+        const blogs = blogRes.data;
+        setBlogs(blogs);
+        setFilteredBlogs(blogs);
 
-  const filteredArticles =
-    selectedCategory === "Tất cả"
-      ? articles
-      : articles.filter((a) => a.category === selectedCategory);
+        // Lấy danh mục từ API riêng
+        const categoryRes = await adminAPI.getCategory();
+        const categories = categoryRes || [];
+
+        // Thêm tùy chọn “Tất cả”
+        setCategories(["Tất cả", ...categories.map((c: any) => c.name)]);
+      } catch (err) {
+        console.error("Error fetching blogs or categories:", err);
+        message.error("Không thể tải dữ liệu bài viết hoặc danh mục.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // 🔹 Lọc theo danh mục và tìm kiếm
+  useEffect(() => {
+    let filtered = blogs;
+
+    if (selectedCategory !== "Tất cả") {
+      filtered = filtered.filter((b) => b.category === selectedCategory);
+    }
+
+    if (searchTerm.trim()) {
+      filtered = filtered.filter((b) =>
+        b.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setFilteredBlogs(filtered);
+  }, [selectedCategory, searchTerm, blogs]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-96">
+        <Spin size="large" tip="Đang tải bài viết..." />
+      </div>
+    );
+  }
 
   return (
     <main>
@@ -106,7 +97,7 @@ export default function BlogPage() {
         </Paragraph>
       </section>
 
-      {/* Search and Filter Section */}
+      {/* Search & Filter Section */}
       <section
         style={{
           background: "#f5f5f5",
@@ -120,6 +111,8 @@ export default function BlogPage() {
               <Input
                 placeholder="Tìm kiếm bài viết..."
                 prefix={<SearchOutlined />}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 style={{ width: "100%" }}
               />
             </Col>
@@ -131,14 +124,12 @@ export default function BlogPage() {
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
-                      className={`
-                        px-3 py-1.5 text-sm rounded-md border transition-all duration-200
+                      className={`px-3 py-1.5 text-sm rounded-md border transition-all duration-200
                         ${
                           isActive
                             ? "bg-green-500 text-white border-green-600 hover:bg-green-700"
                             : "bg-white text-green-700 border-green-300 hover:bg-green-100"
-                        }
-                      `}
+                        }`}
                     >
                       {category}
                     </button>
@@ -150,18 +141,18 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Articles Grid */}
+      {/* Blog Cards */}
       <section style={{ padding: "4rem 1rem" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Row gutter={[24, 24]}>
-            {filteredArticles.map((article) => (
-              <Col xs={24} md={12} lg={8} key={article.id}>
+            {filteredBlogs.map((blog) => (
+              <Col xs={24} md={12} lg={8} key={blog.id}>
                 <Card
                   hoverable
                   cover={
                     <Image
-                      src={article.image}
-                      alt={article.title}
+                      src={blog.imageUrl || "/placeholder.jpg"}
+                      alt={blog.title}
                       className="max-h-48"
                       style={{
                         objectFit: "cover",
@@ -180,17 +171,19 @@ export default function BlogPage() {
                       marginBottom: 8,
                     }}
                   >
-                    <Tag color="green">{article.category}</Tag>
+                    <Tag color="green">{blog.category}</Tag>
                     <Text type="secondary" style={{ fontSize: 12 }}>
-                      {article.date}
+                      {new Date(blog.timestamp).toLocaleString()}
                     </Text>
                   </div>
-                  <Title level={5}>{article.title}</Title>
-                  <Paragraph ellipsis={{ rows: 3 }}>
-                    {article.description}
-                  </Paragraph>
-                  <Link to={`/bai-viet/${article.id}`}>
-                    <button className="inline-flex items-center gap-1 text-green-600 font-medium hover:text-green-700 transition-colors">
+                  <Title level={5}>{blog.title}</Title>
+                  <div
+                    className="prose lg:prose-xl line-clamp-3 overflow-hidden text-ellipsis my-3"
+                    dangerouslySetInnerHTML={{ __html: blog.description }}
+                  />
+
+                  <Link to={`/bai-viet/${blog._id}`}>
+                    <button className="inline-flex items-center gap-1 text-green-600 font-medium hover:text-green-700 transition-colors cursor-pointer">
                       Đọc tiếp
                       <ArrowRightOutlined className="w-4 h-4" />
                     </button>
@@ -200,11 +193,11 @@ export default function BlogPage() {
             ))}
           </Row>
 
-          {/* Pagination */}
-          <div style={{ textAlign: "center", marginTop: 48 }}>
+          {/* Pagination (chưa có API phân trang thật) */}
+          <div className="text-center mt-12">
             <Pagination
               current={1}
-              total={30}
+              total={filteredBlogs.length}
               pageSize={6}
               showSizeChanger={false}
             />

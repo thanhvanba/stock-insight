@@ -5,13 +5,15 @@ import AboutPage from "../page/about";
 import BlogPage from "../page/blog";
 import NewsPage from "../page/news";
 import CoursePage from "../page/course";
+import BlogDetail from "../page/blog/BlogDetail";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/trang-chu" element={<HomePage />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/gioi-thieu" element={<AboutPage />} />
       <Route path="/bai-viet" element={<BlogPage />} />
+      <Route path="/bai-viet/:id" element={<BlogDetail />} />
       <Route path="/tin-tuc" element={<NewsPage />} />
       <Route path="/khoa-hoc" element={<CoursePage />} />
 

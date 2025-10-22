@@ -1,4 +1,14 @@
-import { Button, Card, Typography, Row, Col, Image, Tag, Input } from "antd";
+import {
+  Button,
+  Card,
+  Typography,
+  Row,
+  Col,
+  Image,
+  Tag,
+  Input,
+  message,
+} from "antd";
 import {
   ArrowRightOutlined,
   LineChartOutlined,
@@ -14,36 +24,44 @@ import {
 import HeroSlider from "../components/HeroSlider";
 import { BsArrowRight, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { FaLightbulb, FaPhoneAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { adminAPI } from "../service";
+import type { BlogResponse } from "../types/blog";
 
-const { TextArea } = Input;
-const { Title } = Typography;
-const articles = [
-  {
-    image: "/stock-market-analysis-chart-.jpg",
-    title: "Phân tích xu hướng thị trường Q1/2025",
-    excerpt:
-      "Nhận định chi tiết về các nhóm ngành tiềm năng và cơ hội đầu tư trong quý đầu năm 2025.",
-    date: "15/01/2025",
-    category: "Phân tích",
-  },
-  {
-    image: "/investment-strategy-planning.png",
-    title: "Chiến lược đầu tư dài hạn hiệu quả",
-    excerpt:
-      "Hướng dẫn xây dựng danh mục đầu tư dài hạn với tỷ suất sinh lời ổn định.",
-    date: "12/01/2025",
-    category: "Chiến lược",
-  },
-  {
-    image: "/technical-analysis-indicators.jpg",
-    title: "Sử dụng chỉ báo kỹ thuật trong giao dịch",
-    excerpt:
-      "Cách kết hợp các chỉ báo kỹ thuật phổ biến để tìm điểm vào lệnh tối ưu.",
-    date: "08/01/2025",
-    category: "Kỹ thuật",
-  },
-];
+// if (loading)
+//   return (
+//     <div className="flex justify-center py-16">
+//       <Spin size="large" />
+//     </div>
+//   );
+
+// const articles = [
+//   {
+//     image: "/stock-market-analysis-chart-.jpg",
+//     title: "Phân tích xu hướng thị trường Q1/2025",
+//     excerpt:
+//       "Nhận định chi tiết về các nhóm ngành tiềm năng và cơ hội đầu tư trong quý đầu năm 2025.",
+//     date: "15/01/2025",
+//     category: "Phân tích",
+//   },
+//   {
+//     image: "/investment-strategy-planning.png",
+//     title: "Chiến lược đầu tư dài hạn hiệu quả",
+//     excerpt:
+//       "Hướng dẫn xây dựng danh mục đầu tư dài hạn với tỷ suất sinh lời ổn định.",
+//     date: "12/01/2025",
+//     category: "Chiến lược",
+//   },
+//   {
+//     image: "/technical-analysis-indicators.jpg",
+//     title: "Sử dụng chỉ báo kỹ thuật trong giao dịch",
+//     excerpt:
+//       "Cách kết hợp các chỉ báo kỹ thuật phổ biến để tìm điểm vào lệnh tối ưu.",
+//     date: "08/01/2025",
+//     category: "Kỹ thuật",
+//   },
+// ];
 
 const courses = [
   {
@@ -76,6 +94,39 @@ const courses = [
   },
 ];
 export default function HomePage() {
+  const { TextArea } = Input;
+  const { Title } = Typography;
+
+  const [articles, setArticles] = useState<BlogResponse[]>([]);
+  console.log("🚀 ~ articles:", articles);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchLatestArticles = async () => {
+      try {
+        setLoading(true);
+        const res = await adminAPI.getBlogs();
+        console.log("🚀 ~ fetchLatestArticles ~ res:", res);
+        // Nếu API trả data theo cấu trúc { data: [...] }
+        const data = res.data || [];
+        // Có thể sort theo ngày để lấy bài mới nhất
+        const sorted = data.sort(
+          (a: any, b: any) =>
+            new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        );
+        // Lấy 6 bài mới nhất
+        setArticles(data);
+      } catch (err) {
+        console.error("Error fetching latest articles:", err);
+        message.error("Không thể tải bài viết mới nhất.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLatestArticles();
+  }, []);
   return (
     <main>
       {/* Hero Section */}
@@ -202,17 +253,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Latest Articles */}
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-6 lg:px-12">
           {/* Header */}
           <div className="mb-6 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-            <h2 className="text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
+            <h2 className="text-[#0bce80] text-2xl font-bold md:text-3xl">
               Bài viết mới nhất
             </h2>
-            <Button className="group bg-transparent">
+            <Button
+              className="group bg-transparent"
+              onClick={() => navigate("/bai-viet")}
+            >
               Xem tất cả
-              <ArrowRightOutlined className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRightOutlined className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
 
@@ -221,12 +274,12 @@ export default function HomePage() {
             {articles.map((article, index) => (
               <Card
                 key={index}
-                className="group overflow-hidden border-border bg-card transition-all hover:shadow-xl"
+                className="group overflow-hidden border border-gray-200 bg-white transition-all hover:shadow-xl"
               >
                 {/* Image */}
                 <div className="aspect-video overflow-hidden bg-muted">
                   <img
-                    src={article.image || "/placeholder.svg"}
+                    src={article.imageUrl || "/placeholder.svg"}
                     alt={article.title}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -234,28 +287,36 @@ export default function HomePage() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="mb-3 flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="mb-3 flex items-center gap-4 text-sm text-gray-500">
                     <span className="inline-flex items-center gap-1">
                       <CalendarOutlined className="h-3.5 w-3.5" />
-                      {article.date}
+                      {article.timestamp
+                        ? new Date(article.timestamp).toLocaleDateString(
+                            "vi-VN"
+                          )
+                        : "N/A"}
                     </span>
                     <Tag
                       color="green"
-                      className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent"
+                      className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-600"
                     >
-                      {article.category}
+                      {article.category || "Chưa phân loại"}
                     </Tag>
                   </div>
 
-                  <h3 className="mb-3 text-balance text-xl font-semibold text-card-foreground leading-tight">
+                  <h3 className="mb-3 text-xl font-semibold text-gray-800 leading-tight">
                     {article.title}
                   </h3>
 
-                  <p className="mb-4 text-pretty text-sm text-muted-foreground leading-relaxed">
-                    {article.excerpt}
-                  </p>
+                  <div
+                    className="prose lg:prose-xl line-clamp-1 overflow-hidden text-ellipsis my-3"
+                    dangerouslySetInnerHTML={{ __html: article.description }}
+                  />
 
-                  <button className="flex items-center bg-[#0bce80] text-white px-3 py-1 rounded-xl group/btn p-0 text-accent hover:text-accent/80">
+                  <button
+                    className="flex items-center bg-[#0bce80] text-white px-3 py-1 rounded-xl group/btn p-0 hover:opacity-90"
+                    onClick={() => navigate(`/bai-viet/${article._id}`)}
+                  >
                     Đọc tiếp
                     <BsArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </button>
