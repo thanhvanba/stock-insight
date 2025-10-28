@@ -16,6 +16,7 @@ export default function AppRoutes() {
       <Route path="/bai-viet/:id" element={<BlogDetail />} />
       <Route path="/tin-tuc" element={<NewsPage />} />
       <Route path="/khoa-hoc" element={<CoursePage />} />
+      
 
       <Route path="/posts/:slug" element={<Navigate to=".." replace />} />
       <Route path="/pages/:slug" element={<Navigate to=".." replace />} />

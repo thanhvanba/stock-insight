@@ -11,7 +11,7 @@ export default function Footer() {
         <Row gutter={[32, 32]}>
           {/* About */}
           <Col xs={24} md={6}>
-            <h3 className="text-2xl font-bold mb-4">Kỹ sư chứng khoán</h3>
+            <h3 className="text-2xl font-bold mb-4">KỸ SƯ ĐẦU TƯ</h3>
             <p className="text-sm mb-6 opacity-90 leading-relaxed">
               Hệ thống đầu tư chứng khoán kết hợp AI và kinh nghiệm thực chiến.
             </p>

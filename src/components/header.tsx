@@ -34,7 +34,7 @@ export default function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <h2 className="text-2xl font-semibold text-[#0bce80]">
-            Kỹ Sư Chứng Khoán
+            KỸ SƯ ĐẦU TƯ
           </h2>
         </Link>
 

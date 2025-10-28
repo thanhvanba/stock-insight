@@ -218,7 +218,7 @@ export default function HomePage() {
               {
                 icon: <LineChartOutlined />,
                 title: "Hệ thống AI",
-                desc: "Phân tích dữ liệu thị trường bằng trí tuệ nhân tạo",
+                desc: "Phân tích dữ liệu bằng trí tuệ nhân tạo",
               },
               {
                 icon: <BarChartOutlined />,
@@ -228,7 +228,7 @@ export default function HomePage() {
               {
                 icon: <LineChartOutlined />,
                 title: "Biểu đồ dòng tiền",
-                desc: "Theo dõi dòng tiền thông minh của tổ chức",
+                desc: "Theo dõi dòng tiền của các tổ chức",
               },
               {
                 icon: <TeamOutlined />,
