@@ -57,8 +57,28 @@ const BlogDetail: React.FC = () => {
           Kiến thức và phân tích chuyên sâu về thị trường chứng khoán
         </Paragraph>
       </section>
-      <div className="container mx-auto px-4 py-8">
+      {/* <div className="container mx-auto px-4 py-8">
         <article className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold my-4">{blog.title}</h1>
+          <p className="text-gray-500 mb-4">
+            Ngày đăng: {new Date(blog.timestamp).toLocaleString()}
+          </p>
+          {blog.imageUrl && (
+            <img
+              src={blog.imageUrl}
+              alt={blog.title}
+              className="w-full h-auto object-cover rounded-lg mb-8"
+            />
+          )}
+          <div
+            className="prose lg:prose-xl"
+            dangerouslySetInnerHTML={{ __html: blog.description }}
+          />
+        </article>
+      </div> */}
+      <div className="container mx-auto px-4 py-8 ">
+        {/* Thêm my-12 để tạo khoảng trống trên và dưới */}
+        <article className="max-w-4xl mx-auto my-16">
           <h1 className="text-4xl font-bold my-4">{blog.title}</h1>
           <p className="text-gray-500 mb-4">
             Ngày đăng: {new Date(blog.timestamp).toLocaleString()}

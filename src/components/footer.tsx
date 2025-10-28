@@ -110,6 +110,12 @@ export default function Footer() {
 
         <Divider className="!border-white/20 !mt-12" />
         <Text className="block text-center text-xs !text-white/70">
+          Tất cả thông tin trong videos và bài viết đều không phải là lời khuyên
+          đầu tư.<br/>Hoạt động đầu tư luôn tiềm ẩn nhiều rủi ro tài chính. <br/>Kênh chỉ
+          mang lại kiến thức và góc nhìn cho các bạn khi tham gia đầu tư, còn sự
+          quyết định nằm ở chính các bạn.
+        </Text>
+        <Text className="block text-center text-xs !text-white/70">
           &copy; 2025 Đầu Tư Cùng Anh Tuấn. All rights reserved.
         </Text>
       </div>
