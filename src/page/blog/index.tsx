@@ -80,6 +80,7 @@ export default function BlogPage() {
     );
   }
 
+  console.log(filteredBlogs);
   return (
     <main>
       {/* Hero Section */}
@@ -171,7 +172,9 @@ export default function BlogPage() {
                       marginBottom: 8,
                     }}
                   >
-                    <Tag color="green">{blog.category}</Tag>
+                    <Tag color="green">
+                      {blog.category.map((c: any) => c.name)}
+                    </Tag>
                     <Text type="secondary" style={{ fontSize: 12 }}>
                       {new Date(blog.timestamp).toLocaleString()}
                     </Text>

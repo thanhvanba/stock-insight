@@ -300,7 +300,7 @@ export default function HomePage() {
                       color="green"
                       className="rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-600"
                     >
-                      {article.category || "Chưa phân loại"}
+                      {article.category?.map((c) => c.name).join(", ")}
                     </Tag>
                   </div>
 
