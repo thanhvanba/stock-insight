@@ -185,7 +185,7 @@ export default function BlogPage() {
                     dangerouslySetInnerHTML={{ __html: blog.description }}
                   />
 
-                  <Link to={`/bai-viet/${blog._id}`}>
+                  <Link to={`/bai-viet/${blog.slug}`}>
                     <button className="inline-flex items-center gap-1 text-green-600 font-medium hover:text-green-700 transition-colors cursor-pointer">
                       Đọc tiếp
                       <ArrowRightOutlined className="w-4 h-4" />

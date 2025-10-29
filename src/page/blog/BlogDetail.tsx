@@ -6,17 +6,26 @@ import { Typography } from "antd";
 
 const BlogDetail: React.FC = () => {
   const { Title, Paragraph } = Typography;
-  const { id } = useParams<{ id: string }>();
+  //const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [blog, setBlog] = useState<BlogResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+
+  console.log(slug)
+
   useEffect(() => {
     const fetchBlog = async () => {
-      if (!id) return;
+      if (!slug) return;
       try {
+        // setLoading(true);
+        // const data = await adminAPI.getBlogById(id);
+        // setBlog(data);
+        // setError(null);
+
         setLoading(true);
-        const data = await adminAPI.getBlogById(id);
+        const data = await adminAPI.getBlogBySlug(slug);
         setBlog(data);
         setError(null);
       } catch (err) {
@@ -28,7 +37,7 @@ const BlogDetail: React.FC = () => {
     };
 
     fetchBlog();
-  }, [id]);
+  }, [slug]);
 
   if (loading) {
     return <div>Loading...</div>;

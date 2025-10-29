@@ -66,6 +66,16 @@ export const adminAPI = {
     }
   },
 
+    getBlogBySlug: async (slug: string) => {
+    try {
+      const response = await api.get(`/blogs/slug/${slug}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching blog by slug:", error);
+      throw error;
+    }
+  },
+
   // Update blog
   // updateBlog: async (id: string, blogData: BlogData, token: string) => {
   //   try {

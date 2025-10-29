@@ -127,6 +127,10 @@ export default function HomePage() {
 
     fetchLatestArticles();
   }, []);
+
+console.log(articles)
+
+
   return (
     <main>
       {/* Hero Section */}
@@ -312,10 +316,9 @@ export default function HomePage() {
                     className="prose lg:prose-xl line-clamp-1 overflow-hidden text-ellipsis my-3"
                     dangerouslySetInnerHTML={{ __html: article.description }}
                   />
-
                   <button
                     className="flex items-center bg-[#0bce80] text-white px-3 py-1 rounded-xl group/btn p-0 hover:opacity-90"
-                    onClick={() => navigate(`/bai-viet/${article._id}`)}
+                    onClick={() => navigate(`/bai-viet/${article.slug}`)}
                   >
                     Đọc tiếp
                     <BsArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
