@@ -1,7 +1,9 @@
+//@ts-ignore
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import Stock from "./components/banner/stock";
 import AppRoutes from "./routes";
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <AppRoutes />
+        <Stock />
         <Footer />
       </BrowserRouter>
     </>

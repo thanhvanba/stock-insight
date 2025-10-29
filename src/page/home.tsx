@@ -1,3 +1,4 @@
+//@ts-ignore
 import {
   Button,
   Card,
@@ -28,6 +29,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { adminAPI } from "../service";
 import type { BlogResponse } from "../types/blog";
+
 
 // if (loading)
 //   return (
@@ -128,14 +130,12 @@ export default function HomePage() {
     fetchLatestArticles();
   }, []);
 
-console.log(articles)
-
-
   return (
     <main>
       {/* Hero Section */}
-      <HeroSlider />
 
+      <HeroSlider />
+     
       {/* About Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
