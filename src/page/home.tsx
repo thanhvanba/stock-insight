@@ -29,7 +29,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { adminAPI } from "../service";
 import type { BlogResponse } from "../types/blog";
-
+import { CTABanner } from "../components/banner";
 
 // if (loading)
 //   return (
@@ -135,7 +135,7 @@ export default function HomePage() {
       {/* Hero Section */}
 
       <HeroSlider />
-     
+
       {/* About Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -256,6 +256,8 @@ export default function HomePage() {
           </Row>
         </div>
       </section>
+
+      <CTABanner />
 
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-6 lg:px-12">

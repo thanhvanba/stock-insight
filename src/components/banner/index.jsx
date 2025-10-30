@@ -3,7 +3,7 @@ import Banner from "./Banner";
 import TextBox from "./TextBox";
 // App.jsx hoặc trang của bạn
 import { Space } from "antd";
-import Stock from "./stock";
+import PopularSymbols from "../ticket";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -149,13 +149,13 @@ export const MinimalBanner = () => (
 );
 
 export const CTABanner = () => (
-  <Banner height="280px" backgroundColor="#1890ff">
+  <Banner height="280px" backgroundImage="https://picsum.photos/800/280">
     <TextBox align="center">
       <Title
         style={{ color: "#fff", fontSize: "2.2rem", marginBottom: "16px" }}
         level={2}
       >
-        Ready to Transform Your Workflow?
+        Thời đại AI không dùng AI để đầu tư là một sai lầm?
       </Title>
       <Paragraph
         style={{
@@ -166,13 +166,24 @@ export const CTABanner = () => (
       >
         Join thousands of teams who ship faster with our platform.
       </Paragraph>
-      <Button
-        type="primary"
-        size="large"
-        style={{ marginTop: "24px", backgroundColor: "#fff", color: "#1890ff" }}
+      <a
+        href="https://zalo.me/g/vvvtqz849"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: "none" }}
       >
-        Get Started for Free
-      </Button>
+        <Button
+          type="primary"
+          size="large"
+          style={{
+            marginTop: "24px",
+            backgroundColor: "#fff",
+            color: "#1890ff",
+          }}
+        >
+          HỖ TRỢ ĐẶT LỆNH MIỄN PHÍ
+        </Button>
+      </a>
     </TextBox>
   </Banner>
 );
@@ -181,7 +192,7 @@ export const AnnouncementBanner = () => (
   <Banner height="56px" backgroundColor="#fffbe6" sticky={true}>
     <TextBox align="center">
       <Text type="warning" style={{ fontSize: "14px" }}>
-        🚀 New feature launched! Try our AI-powered analytics dashboard today.
+        🚀 <PopularSymbols/>
       </Text>
     </TextBox>
   </Banner>

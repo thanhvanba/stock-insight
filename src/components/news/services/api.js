@@ -44,10 +44,21 @@ const api = {
     return getJsonOrThrow(res);
   },
 
-  getById: async () => {},
-  create: async () => {},
-  update: async () => {},
-  delete: async () => {},
+  getPopularSymbolsToday: async () => {
+    let token = auth.getAccessToken();
+    if (!token) {
+      await auth.login();
+      token = auth.getAccessToken();
+    }
+    const headers = token ? { Authorization: `Bearer ${token}` } : undefined;
+
+    const res = await fetch(`${BASE_URL}/posts/popular-symbols/today`, {
+      headers,
+    });
+    return getJsonOrThrow(res);
+  },
+
+
 };
 
 export default api;
