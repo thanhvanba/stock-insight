@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
 import { ArrowRightOutlined } from "@ant-design/icons";
+import { useRef, useState } from "react";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 import look1 from "/carousel-1.jpg";
 import look2 from "/carousel-2.jpg";
@@ -66,7 +66,7 @@ export default function ShopTheLookSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-
+      
       {/* Custom controls */}
       <div className="pointer-events-none absolute left-10 bottom-10 max-md:left-1/2 max-md:bottom-4 max-md:-translate-x-1/2 z-10">
         <div className="pointer-events-auto rounded-2xl bg-white/95 shadow-md overflow-hidden max-md:rounded-xl">

@@ -1,35 +1,38 @@
-//@ts-ignore
-import {
-  Button,
-  Card,
-  Typography,
-  Row,
-  Col,
-  Image,
-  Tag,
-  Input,
-  message,
-} from "antd";
+//@ts-nocheck
 import {
   ArrowRightOutlined,
-  LineChartOutlined,
-  TeamOutlined,
   BarChartOutlined,
   CalendarOutlined,
   CheckCircleOutlined,
-  YoutubeOutlined,
+  LineChartOutlined,
   MailOutlined,
   PhoneOutlined,
   SendOutlined,
+  TeamOutlined,
+  YoutubeOutlined,
 } from "@ant-design/icons";
-import HeroSlider from "../components/HeroSlider";
+import {
+  Button,
+  Card,
+  Col,
+  Image,
+  Input,
+  message,
+  Row,
+  Tag,
+  Typography,
+} from "antd";
+import { useEffect, useState } from "react";
 import { BsArrowRight, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { FaLightbulb, FaPhoneAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import HeroSlider from "../components/HeroSlider";
+import VNIndexWidget from "../components/stock";
 import { adminAPI } from "../service";
 import type { BlogResponse } from "../types/blog";
-import { CTABanner } from "../components/banner";
+import AnnounOpen from "./banner/AnnounOpen";
+import { CallToActionAI } from "./banner/CTA_AI";
+import { CallToActionZalo } from "./banner/CTA_Zalo";
 
 // if (loading)
 //   return (
@@ -133,9 +136,8 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero Section */}
-
       <HeroSlider />
-
+      
       {/* About Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -208,6 +210,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <AnnounOpen />
+
       {/* Investment Systems */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
@@ -257,8 +261,84 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CTABanner />
+      <CallToActionAI />
 
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Header */}
+          <div className="mb-8 text-center">
+            <h2 className="text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl mb-3">
+              Những thứ bạn cần để bắt đầu hành trình đầu tư
+            </h2>
+            <p className="mx-auto max-w-2xl text-pretty text-muted-foreground leading-relaxed">
+              Đã được tổng hợp đầy đủ trong các khóa học dưới đây
+            </p>
+          </div>
+
+          {/* Courses Grid */}
+          <div className="grid gap-8 lg:grid-cols-2">
+            {courses.map((course, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden border-border bg-card transition-all hover:shadow-xl"
+              >
+                {/* Image */}
+                <div className="aspect-video overflow-hidden bg-muted">
+                  <img
+                    src={course.image || "/placeholder.svg"}
+                    alt={course.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-8">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h3 className="text-balance text-2xl font-bold leading-tight">
+                      {course.title}
+                    </h3>
+                    <Tag
+                      className="shrink-0 rounded-full px-3 py-1 text-xs font-semibold"
+                      color={`${course.isPaid ? "green" : "geekblue"}`}
+                    >
+                      {course.type}
+                    </Tag>
+                  </div>
+
+                  <p className="mb-6 text-pretty leading-relaxed">
+                    {course.description}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="mb-6 space-y-2">
+                    {course.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm">
+                        <CheckCircleOutlined className="mt-0.5 h-4 w-4 shrink-0 !text-[#0bce80]" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    className={`w-full py-3 rounded-2xl text-white ${
+                      course.isPaid
+                        ? "bg-[#0bce80] hover:bg-[#0bce80]/90"
+                        : "bg-[#263c54] hover:bg-[#263c54]/90"
+                    }`}
+                  >
+                    <YoutubeOutlined className="mr-2 h-4 w-4" />
+                    Xem trên YouTube
+                  </button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CallToActionZalo />
+
+      {/* Latest Articles */}
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="container mx-auto px-6 lg:px-12">
           {/* Header */}
@@ -324,79 +404,6 @@ export default function HomePage() {
                   >
                     Đọc tiếp
                     <BsArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-6 lg:px-12">
-          {/* Header */}
-          <div className="mb-8 text-center">
-            <h2 className="text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl mb-3">
-              Khóa học nổi bật
-            </h2>
-            <p className="mx-auto max-w-2xl text-pretty text-muted-foreground leading-relaxed">
-              Học từ kinh nghiệm thực chiến và phương pháp đã được kiểm chứng
-            </p>
-          </div>
-
-          {/* Courses Grid */}
-          <div className="grid gap-8 lg:grid-cols-2">
-            {courses.map((course, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden border-border bg-card transition-all hover:shadow-xl"
-              >
-                {/* Image */}
-                <div className="aspect-video overflow-hidden bg-muted">
-                  <img
-                    src={course.image || "/placeholder.svg"}
-                    alt={course.title}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-balance text-2xl font-bold leading-tight">
-                      {course.title}
-                    </h3>
-                    <Tag
-                      className="shrink-0 rounded-full px-3 py-1 text-xs font-semibold"
-                      color={`${course.isPaid ? "green" : "geekblue"}`}
-                    >
-                      {course.type}
-                    </Tag>
-                  </div>
-
-                  <p className="mb-6 text-pretty leading-relaxed">
-                    {course.description}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="mb-6 space-y-2">
-                    {course.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm">
-                        <CheckCircleOutlined className="mt-0.5 h-4 w-4 shrink-0 !text-[#0bce80]" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <button
-                    className={`w-full py-3 rounded-2xl text-white ${
-                      course.isPaid
-                        ? "bg-[#0bce80] hover:bg-[#0bce80]/90"
-                        : "bg-[#263c54] hover:bg-[#263c54]/90"
-                    }`}
-                  >
-                    <YoutubeOutlined className="mr-2 h-4 w-4" />
-                    Xem trên YouTube
                   </button>
                 </div>
               </Card>
@@ -551,6 +558,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <VNIndexWidget />
     </main>
   );
 }

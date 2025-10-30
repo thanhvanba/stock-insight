@@ -1,9 +1,8 @@
-//@ts-ignore
+//@ts-nocheck
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import VNIndexWidget from "./components/stock";
 import AppRoutes from "./routes";
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
       <BrowserRouter>
         <Header />
         <AppRoutes />
-        <VNIndexWidget />
         <Footer />
       </BrowserRouter>
     </>

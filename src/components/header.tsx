@@ -1,9 +1,9 @@
 //@ts-ignore
-import { useEffect, useState } from "react";
-import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 import { Button, Drawer, Menu } from "antd";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AnnouncementBanner } from "../components/banner";
+import MiniHeader from "../page/banner/MiniHeader";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,7 +84,7 @@ export default function Header() {
             />
           </div>
         </div>
-
+        <MiniHeader />
         {/* Mobile Drawer */}
         <Drawer
           title="Menu"
@@ -120,7 +120,6 @@ export default function Header() {
             </Menu.Item>
           </Menu>
         </Drawer>
-        <AnnouncementBanner />
       </nav>
     </>
   );

@@ -192,7 +192,7 @@ export const AnnouncementBanner = () => (
   <Banner height="56px" backgroundColor="#fffbe6" sticky={true}>
     <TextBox align="center">
       <Text type="warning" style={{ fontSize: "14px" }}>
-        🚀 <PopularSymbols/>
+        🚀 Text
       </Text>
     </TextBox>
   </Banner>
