@@ -1,9 +1,8 @@
-//@ts-ignore
+//@ts-nocheck
 import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 import { Button, Drawer, Menu } from "antd";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MiniHeader from "../page/banner/MiniHeader";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
