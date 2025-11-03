@@ -1,5 +1,4 @@
 // src/components/Banner/TextBox.jsx
-import React from "react";
 
 const TextBox = ({
   children,
