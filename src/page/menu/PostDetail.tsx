@@ -1,7 +1,7 @@
 // PostDetail.tsx
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify"; // khuyên dùng để render HTML an toàn
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { API_BASE, getJson } from "./api";
 
 export default function PostDetail() {

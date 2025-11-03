@@ -6,7 +6,7 @@ import PageDetail from "../page/menu/PageDetail";
 type ContentType = "post" | "page";
 interface ResolveResult {
   type: ContentType;
-  data: any;
+  data: unknown;
 }
 
 const API_BASE = "http://localhost:3000";

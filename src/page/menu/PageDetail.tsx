@@ -1,7 +1,7 @@
 // PageDetail.tsx
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { API_BASE, getJson } from "./api";
 
 export default function PageDetail() {
