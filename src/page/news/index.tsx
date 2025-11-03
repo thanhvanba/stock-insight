@@ -177,7 +177,7 @@
 //   );
 // }
 
-// @ts-ignore
+// @ts-nocheck
 import NewsPages from "../../components/news/pages";
 
 export default function NewsPage() {

@@ -84,7 +84,7 @@ export default function Header() {
             />
           </div>
         </div>
-        <MiniHeader />
+
         {/* Mobile Drawer */}
         <Drawer
           title="Menu"

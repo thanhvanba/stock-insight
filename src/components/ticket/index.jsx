@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import { Spin, Alert } from "antd";
+import { Spin } from "antd";
+import { useEffect, useRef, useState } from "react";
+import { IoArrowDownOutline, IoArrowUpOutline } from "react-icons/io5";
 import api from "../news/services/api";
 
 const PopularSymbols = () => {
@@ -11,90 +12,28 @@ const PopularSymbols = () => {
   const contentRef = useRef(null);
   const animationRef = useRef(null);
 
-  // Fetch dữ liệu
   useEffect(() => {
-    let mounted = true;
-
     const load = async () => {
       try {
-        const res = await api.getPopularSymbolsToday();
-        if (mounted) {
-          setSymbols(Array.isArray(res) ? res : []);
-        }
+        const data = await api.getPopularSymbolsToday();
+        setSymbols(Array.isArray(data) ? data : []);
       } catch (err) {
-        if (mounted) {
-          setError(err);
-        }
+        setSymbols([]);
       } finally {
-        if (mounted) {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
-
     load();
-
-    return () => {
-      mounted = false;
-    };
   }, []);
 
-  // Animation cuộn ngang mượt
-  const animate = useCallback(() => {
-  if (!containerRef.current || !contentRef.current) return;
-
-  const container = containerRef.current;
-  const content = contentRef.current;
-
-    const containerWidth = container.offsetWidth;
-  const contentWidth = content.scrollWidth;
-
-    // Always animate, even if content fits
-    let startTime = null;
-  const duration = 20000; // 20 giây cho 1 vòng
-
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-    const elapsed = timestamp - startTime;
-    const progress = (elapsed / duration) % 1; // Loop forever
-    const translateX = -progress * Math.max(contentWidth, containerWidth * 2); // Ensure movement
-
-    content.style.transform = `translateX(${translateX}px)`;
-  animationRef.current = requestAnimationFrame(step);
-  };
-
-  animationRef.current = requestAnimationFrame(step);
-  }, []);
-
-  // Khởi chạy animation
-  // useEffect(() => {
-  //   if (!loading && !error && symbols.length > 0) {
-  //     const timer = setTimeout(() => animate(), 100);
-  //     return () => clearTimeout(timer);
-  //   }
-  //   return () => {
-  //     if (animationRef.current) cancelAnimationFrame(animationRef.current);
-  //   };
-  // }, [loading, error, symbols, animate]);
-
-  // // Cleanup
-  // useEffect(() => {
-  //   return () => {
-  //     if (animationRef.current) cancelAnimationFrame(animationRef.current);
-  //   };
-  // }, []);
-
-  // === Render ===
   if (loading) {
     return (
       <div
         style={{
-          height: "60px",
+          height: 60,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#f0f0f0",
-          width: "100%",
         }}
       >
         <Spin size="small" />
@@ -102,85 +41,79 @@ const PopularSymbols = () => {
     );
   }
 
-  if (error) {
-    return (
-      <div
-        style={{
-          height: "60px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#fff1f0",
-          color: "#ff4d4f",
-          width: "100%",
-          fontSize: "14px",
-        }}
-      >
-        ⚠️ Lỗi tải dữ liệu
-      </div>
-    );
-  }
+  if (symbols.length === 0) return null;
 
-  if (symbols.length === 0) {
-    return (
-      <div
-        style={{
-          height: "60px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#f0f0f0",
-          color: "#888",
-          width: "100%",
-          fontSize: "14px",
-        }}
-      >
-        Không có dữ liệu
-      </div>
-    );
-  }
+  // Nhân đôi để tạo loop mượt
+  const duplicatedSymbols = [...symbols, ...symbols];
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        height: "60px",
-        width: "100%",
-        overflow: "hidden",
-        whiteSpace: "nowrap",
-        backgroundColor: "#f0f0f0",
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      <div
-        ref={contentRef}
+    <>
+     <div
         style={{
-          display: "inline-block",
-          transition: "transform 0s linear",
-          paddingLeft: "16px", // optional: padding đầu
+          marginBottom: "8px",
+          fontSize: "12px",
+          color: "#fff",
+          textAlign: "center",
         }}
       >
-        {symbols.map((symbol, index) => (
-          <span
-            key={`${symbol.symbol}-${index}`}
-            style={{
-              fontSize: "16px",
-              padding: "0 16px",
-              display: "inline-block",
-              color: symbol.color || "#000",
-              fontWeight: "500",
-              lineHeight: "60px", // căn giữa dọc
-            }}
-          >
-            {symbol.symbol} - {symbol.points}
-          </span>
-        ))}
+        Mã cổ phiếu được nhắc đến nhiều nhất hôm nay
       </div>
-    </div>
+      <div
+        style={{
+          height: "60px",
+          overflow: "hidden",
+          backgroundColor: "#f0f0f0",
+          whiteSpace: "nowrap",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            display: "inline-block",
+            animation: "marquee 20s linear infinite",
+            padding: "0 16px",
+          }}
+        >
+          {duplicatedSymbols.map((s, i) => (
+            <span
+              key={i}
+              style={{
+                display: "inline-flex", // ← quan trọng: dùng flex ngang
+                alignItems: "center", // căn giữa dọc
+                gap: "4px", // khoảng cách giữa text và icon
+                fontSize: "16px",
+                padding: "0 12px",
+                fontWeight: "500",
+                color: s.color || "#000",
+                whiteSpace: "nowrap", // đảm bảo không xuống dòng
+                lineHeight: "60px",
+              }}
+            >
+              {s.symbol}:
+              {s.color === "#E11E00" ? (
+                <IoArrowDownOutline style={{ color: s.color, flexShrink: 0 }} />
+              ) : (
+                <IoArrowUpOutline style={{ color: s.color, flexShrink: 0 }} />
+              )}
+              {s.points}
+            </span>
+          ))}
+        </div>
+
+        {/* CSS animation */}
+        <style jsx>{`
+          @keyframes marquee {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+        `}</style>
+      </div>
+    </>
   );
 };
 
 export default PopularSymbols;
-

@@ -41,19 +41,22 @@ export default function NewsModal({ postId, visible, onClose }) {
       title={data ? data.title || "Chi tiết tin" : "Chi tiết tin"}
       onCancel={onClose}
       width={650}
-      bodyStyle={{ maxHeight: '80vh', overflowY: 'auto' }}
+      bodyStyle={{ maxHeight: "80vh", overflowY: "auto" }}
       footer={[
-        <Button key="back">Return</Button>,
-        <Button key="submit" type="primary" loading={loading}>
-          Submit
-        </Button>,
+        // <Button key="back">Return</Button>,
+        // <Button key="submit" type="primary" loading={loading}>
+        //   Submit
+        // </Button>,
         <Button
           key="link"
-          href="https://google.com"
+          href={`https://www.google.com/search?q=${encodeURIComponent(
+            data ? data.title || "" : ""
+          )}`}
+          target="_blank"
           type="primary"
           loading={loading}
         >
-          Search on Google
+          Kiểm tra tin tức trên Google
         </Button>,
       ]}
       destroyOnClose

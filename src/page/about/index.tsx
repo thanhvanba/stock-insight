@@ -126,42 +126,6 @@ export default function AboutPage() {
         </Row>
       </section>
 
-      {/* Philosophy Section */}
-      <section style={{ padding: "4rem 1rem", background: "#f5f5f5" }}>
-        <h2 className="text-center text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
-          Triết lý đầu tư
-        </h2>
-        <div style={{ maxWidth: 800, margin: "0 auto", marginTop: 32 }}>
-          {[
-            {
-              h2: "1. Đầu tư dựa trên hệ thống, không cảm tính",
-              content:
-                "Mọi quyết định đầu tư phải dựa trên dữ liệu, phân tích kỹ thuật và tín hiệu rõ ràng từ hệ thống. Loại bỏ cảm xúc khỏi quá trình ra quyết định.",
-            },
-            {
-              h2: "2. Quản lý rủi ro là ưu tiên hàng đầu",
-              content:
-                "Bảo vệ vốn quan trọng hơn tìm kiếm lợi nhuận. Luôn đặt stop-loss và không bao giờ mạo hiểm quá 2% vốn trong một giao dịch.",
-            },
-            {
-              h2: "3. Kết hợp công nghệ và kinh nghiệm",
-              content:
-                "Sử dụng AI và công nghệ để phân tích dữ liệu lớn, nhưng kết hợp với kinh nghiệm thực chiến để đưa ra quyết định cuối cùng.",
-            },
-            {
-              h2: "4. Học hỏi không ngừng",
-              content:
-                "Thị trường luôn thay đổi. Nhà đầu tư thành công là người không ngừng học hỏi, thích nghi và cải thiện hệ thống của mình.",
-            },
-          ].map((item, i) => (
-            <Card key={i} style={{ marginBottom: 24 }}>
-              <h2 style={{ fontSize: 32 }}>{item.h2}</h2>
-              <p style={{ fontSize: 24 }}>{item.content}</p>
-            </Card>
-          ))}
-        </div>
-      </section>
-
       {/* Investment System Section */}
       <section style={{ padding: "4rem 1rem" }}>
         <h2 className="text-center text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
@@ -202,6 +166,42 @@ export default function AboutPage() {
               </Col>
             ))}
           </Row>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section style={{ padding: "4rem 1rem", background: "#f5f5f5" }}>
+        <h2 className="text-center text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
+          Triết lý đầu tư
+        </h2>
+        <div style={{ maxWidth: 800, margin: "0 auto", marginTop: 32 }}>
+          {[
+            {
+              h2: "1. Đầu tư dựa trên hệ thống, không cảm tính",
+              content:
+                "Mọi quyết định đầu tư phải dựa trên dữ liệu, phân tích kỹ thuật và tín hiệu rõ ràng từ hệ thống. Loại bỏ cảm xúc khỏi quá trình ra quyết định.",
+            },
+            {
+              h2: "2. Quản lý rủi ro là ưu tiên hàng đầu",
+              content:
+                "Bảo vệ vốn quan trọng hơn tìm kiếm lợi nhuận. Luôn đặt stop-loss và không bao giờ mạo hiểm quá 2% vốn trong một giao dịch.",
+            },
+            {
+              h2: "3. Kết hợp công nghệ và kinh nghiệm",
+              content:
+                "Sử dụng AI và công nghệ để phân tích dữ liệu lớn, nhưng kết hợp với kinh nghiệm thực chiến để đưa ra quyết định cuối cùng.",
+            },
+            {
+              h2: "4. Học hỏi không ngừng",
+              content:
+                "Thị trường luôn thay đổi. Nhà đầu tư thành công là người không ngừng học hỏi, thích nghi và cải thiện hệ thống của mình.",
+            },
+          ].map((item, i) => (
+            <Card key={i} style={{ marginBottom: 24 }}>
+              <h2 style={{ fontSize: 32 }}>{item.h2}</h2>
+              <p style={{ fontSize: 24 }}>{item.content}</p>
+            </Card>
+          ))}
         </div>
       </section>
     </main>

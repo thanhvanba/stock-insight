@@ -106,7 +106,7 @@ export default function VNIndexWidget() {
       </Row>
 
       <a
-        href="https://banggia.vps.com.vn/"
+        href="https://openaccount.vps.com.vn/open-account?MKTID=U335"
         target="_blank"
         rel="noopener noreferrer"
         style={{ textDecoration: "none" }}
@@ -125,7 +125,7 @@ export default function VNIndexWidget() {
             padding: "0 20px",
           }}
         >
-          Tư vấn mở tài khoản
+          Mở tài khoản
         </Button>
       </a>
     </div>
