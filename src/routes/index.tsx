@@ -19,10 +19,10 @@ export default function AppRoutes() {
       <Route path="/khoa-hoc" element={<CoursePage />} />
       <Route path="/lien-he" element={<Bio />} />
 
-      <Route path="/posts/:slug" element={<Navigate to=".." replace />} />
+      {/* <Route path="/posts/:slug" element={<Navigate to=".." replace />} />
       <Route path="/pages/:slug" element={<Navigate to=".." replace />} />
 
-      <Route path="/:slug" element={<DynamicContent />} />
+      <Route path="/:slug" element={<DynamicContent />} /> */}
       {/* <Route path="*" element={<Navigate to="/404" replace />} /> */}
     </Routes>
   );
