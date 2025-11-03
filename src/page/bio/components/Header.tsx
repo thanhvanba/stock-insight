@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { BsInfoCircle } from "react-icons/bs";
+import { useState } from "react";
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -17,55 +16,31 @@ export default function Header() {
   return (
     <div>
       <div
-        className={`fixed inset-0 ${
-          darkTheme ? "bg-white" : "bg-black"
-        } bg-opacity-10 backdrop-blur-sm flex justify-center items-center h-full z-10 transition`}
+        className={`fixed inset-0 ${"bg-black"} bg-opacity-10 backdrop-blur-sm flex justify-center items-center h-full z-10 transition`}
       >
         <div
-          className={`${
-            darkTheme ? "bg-slate-800 text-slate-100" : "bg-white"
-          }  md:w-full max-w-md rounded-2xl shadow-lg p-4 mx-4`}
+          className={`${"bg-white"}  md:w-full max-w-md rounded-2xl shadow-lg p-4 mx-4`}
         >
           <h2
-            className={`text-2xl font-bold mb-4 text-center ${
-              darkTheme ? "text-white" : "text-slate-900"
-            }`}
+            className={`text-2xl font-bold mb-4 text-center ${"text-slate-900"}`}
           >
             Other:
           </h2>
           <hr />
           <div className="grid gap-2 pt-2">
-            <section
-              className={`${
-                darkTheme ? "bg-slate-600" : "bg-slate-100"
-              } rounded-xl p-2`}
-            >
+            <section className={`${"bg-slate-100"} rounded-xl p-2`}>
               <p className="text-xl font-bold border-b border-white">About</p>
               <p className="pt-2">
                 This website was built using the{" "}
-                <span
-                  className={`font-bold ${
-                    darkTheme ? "text-white" : "text-slate-500"
-                  }`}
-                >
-                  ReactJS
-                </span>{" "}
+                <span className={`font-bold ${"text-slate-500"}`}>ReactJS</span>{" "}
                 and{" "}
-                <span
-                  className={`font-bold ${
-                    darkTheme ? "text-white" : "text-slate-500"
-                  }`}
-                >
+                <span className={`font-bold ${"text-slate-500"}`}>
                   Tailwind CSS
                 </span>
                 .
               </p>
             </section>
-            <section
-              className={`${
-                darkTheme ? "bg-slate-600" : "bg-slate-100"
-              } rounded-xl p-2`}
-            >
+            <section className={`${"bg-slate-100"} rounded-xl p-2`}>
               <p className="text-xl font-bold border-b border-white">Share</p>
               <div className="grid grid-cols-3 justify-items-center pt-2">
                 <div>
