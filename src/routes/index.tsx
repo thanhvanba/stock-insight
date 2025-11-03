@@ -1,12 +1,11 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import HomePage from "../page/home";
-import DynamicContent from "./DynamicContent";
+import { Route, Routes } from "react-router-dom";
 import AboutPage from "../page/about";
-import BlogPage from "../page/blog";
-import NewsPage from "../page/news";
-import CoursePage from "../page/course";
-import BlogDetail from "../page/blog/BlogDetail";
 import Bio from "../page/bio";
+import BlogPage from "../page/blog";
+import BlogDetail from "../page/blog/BlogDetail";
+import CoursePage from "../page/course";
+import HomePage from "../page/home";
+import NewsPage from "../page/news";
 
 export default function AppRoutes() {
   return (

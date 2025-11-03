@@ -51,7 +51,7 @@ export default function VNIndexWidget() {
           const color =
             sign === "up" ? "#16a34a" : sign === "down" ? "#dc2626" : "#6b7280";
 
-          const refIndex = r.cIndex - delta;
+          //const refIndex = r.cIndex - delta;
 
           return (
             <Col

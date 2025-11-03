@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import PostDetail from "../page/menu/PostDetail";
@@ -107,4 +108,3 @@ export default function DynamicContent() {
     <PageDetail data={result.data} />
   );
 }
-

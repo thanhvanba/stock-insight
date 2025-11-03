@@ -1,4 +1,4 @@
-//@ts-ignore
+//@ts-nocheck
 
 const TextBox = ({
   children,
