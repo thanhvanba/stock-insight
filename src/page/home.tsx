@@ -137,7 +137,7 @@ export default function HomePage() {
     <main>
       {/* Hero Section */}
       <HeroSlider />
-      
+
       {/* About Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -146,22 +146,22 @@ export default function HomePage() {
               <h2 className="text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl mb-3">
                 Giới thiệu
               </h2>
-              <p className="text-gray-600">
-                Với hơn 10 năm kinh nghiệm trong lĩnh vực đầu tư chứng khoán,
-                tôi đã phát triển một hệ thống đầu tư độc đáo kết hợp giữa phân
-                tích kỹ thuật, công nghệ AI và kinh nghiệm thực chiến.
+              <p className="text-gray-600 text-2xl">
+                Chúng tôi là Kỹ Sư Đầu Tư – đội ngũ kiến tạo nên lợi nhuận bền
+                vững cho nhà đầu tư cá nhân bằng sức mạnh của Trí tuệ Nhân tạo
+                (AI) và Phân tích Định lượng chuyên sâu.
               </p>
-              <p className="text-gray-600">
-                Hệ thống của tôi đã giúp hàng trăm nhà đầu tư đạt được mục tiêu
-                tài chính của họ thông qua các chiến lược đầu tư thông minh và
-                quản lý rủi ro hiệu quả.
+              <br />
+              <p className="text-gray-600 text-2xl">
+                Chúng tôi loại bỏ cảm xúc và sự mơ hồ khỏi giao dịch chứng khoán
+                bằng một hệ thống 3 lớp công nghệ đột phá:
               </p>
-              <p className="text-gray-800 font-medium">
-                Thành tựu: Tỷ suất sinh lời trung bình 25-35%/năm trong 5 năm
-                qua
+              <br />
+              <p className="text-gray-800 font-medium text-2xl">
+                Công nghệ + Chiến lược + Hệ thống = Lợi nhuận bền vững
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
-                <div className="flex">
+                {/* <div className="flex">
                   <FaLightbulb size={32} color="#0bce80" />
                   <div className="ml-4">
                     <h2 className="font-medium text-2xl mb-1.5">
@@ -180,7 +180,7 @@ export default function HomePage() {
                       Hơn 10 năm đầu tư và tư vấn chứng khoán thành công
                     </p>
                   </div>
-                </div>
+                </div> */}
                 <Link to="/gioi-thieu">
                   <button className="mt-4 hover:bg-black bg-[#0bce80] border-none px-4 py-2 rounded-3xl hover:text-[#0bce80] text-lg font-medium text-white flex items-center gap-2">
                     Đọc thêm về tôi <ArrowRightOutlined />
@@ -190,9 +190,9 @@ export default function HomePage() {
                   <FaPhoneAlt size={32} color="#0bce80" />
                   <div className="ml-4">
                     <h2 className="font-medium text-2xl mb-1.5">
-                      Liên hệ chúng tôi
+                      Liên hệ tư vấn
                     </h2>
-                    <p className="text-gray-600 text-lg">0988777666</p>
+                    <p className="text-gray-600 text-lg">077 710 7264</p>
                   </div>
                 </div>
               </div>
@@ -218,25 +218,25 @@ export default function HomePage() {
           <h2 className="text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
             Hệ thống đầu tư
           </h2>
-          <p className="text-gray-600 mb-12">
+          <p className="text-gray-600 mb-12 text-2xl">
             Phương pháp đầu tư đa dạng và hiệu quả được chứng minh qua thời gian
           </p>
           <Row gutter={[24, 24]}>
             {[
               {
                 icon: <LineChartOutlined />,
-                title: "Hệ thống AI",
-                desc: "Phân tích dữ liệu bằng trí tuệ nhân tạo",
+                title: "ROBOT AI LỌC CỔ PHIẾU TỐI ƯU",
+                desc: "Chúng tôi sử dụng AI để quét và phân tích hàng ngàn cổ phiếu mỗi ngày, xác định những ứng viên tiềm năng nhất.",
               },
               {
                 icon: <BarChartOutlined />,
-                title: "Amibroker",
-                desc: "Công cụ phân tích kỹ thuật chuyên nghiệp",
+                title: "BOT AMIBROKER & HỆ THỐNG PHÂN VÙNG",
+                desc: "Đầu tư không chỉ là mua, mà còn là quản trị rủi ro. BOT Amibroker của chúng tôi cung cấp một chiến lược giao dịch rõ ràng như đèn giao thông.",
               },
               {
                 icon: <LineChartOutlined />,
-                title: "Biểu đồ dòng tiền",
-                desc: "Theo dõi dòng tiền của các tổ chức",
+                title: "BIỂU ĐỒ DÒNG TIỀN THÔNG MINH",
+                desc: "Hiểu rõ thị trường đang thích ngành nào là chìa khóa. Công cụ độc quyền trên website của chúng tôi cho phép bạn biết điều đó.",
               },
               {
                 icon: <TeamOutlined />,
@@ -270,7 +270,7 @@ export default function HomePage() {
             <h2 className="text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl mb-3">
               Những thứ bạn cần để bắt đầu hành trình đầu tư
             </h2>
-            <p className="mx-auto max-w-2xl text-pretty text-muted-foreground leading-relaxed">
+            <p className="mx-auto max-w-2xl text-pretty text-muted-foreground leading-relaxed text-2xl">
               Đã được tổng hợp đầy đủ trong các khóa học dưới đây
             </p>
           </div>
