@@ -18,7 +18,7 @@ export default function ShopTheLookSlider() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="relative w-full h-[100vh] max-md:h-[85vh] max-sm:h-[70vh]">
+    <div className="relative w-full h-[92vh] max-md:h-[85vh] max-sm:h-[70vh]">
       <Swiper
         spaceBetween={0}
         centeredSlides
@@ -29,7 +29,7 @@ export default function ShopTheLookSlider() {
       >
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx}>
-            <div className="relative w-full h-[100vh] max-md:h-[85vh] max-sm:h-[70vh]">
+            <div className="relative w-full h-[92vh] max-md:h-[85vh] max-sm:h-[70vh]">
               <div
                 className="absolute inset-0 opacity-80 bg-cover bg-center transition-all duration-500"
                 style={{ backgroundImage: `url(${slide.image})` }}
@@ -39,7 +39,7 @@ export default function ShopTheLookSlider() {
               {/* Content */}
               <div className="container mx-auto px-4 md:px-8 py-20 md:py-32 relative h-full flex items-center justify-end text-right">
                 <div className="max-w-3xl text-white">
-                  <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
+                  <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl leading-tight my-6">
                     ĐẦU TƯ THÔNG MINH CÙNG HỆ THỐNG AI VÀ KINH NGHIỆM THỰC CHIẾN
                   </h2>
 
@@ -66,9 +66,9 @@ export default function ShopTheLookSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-      
+
       {/* Custom controls */}
-      <div className="pointer-events-none absolute left-10 bottom-10 max-md:left-1/2 max-md:bottom-4 max-md:-translate-x-1/2 z-10">
+      <div className="hidden md:block pointer-events-none absolute left-10 bottom-10 max-md:left-1/2 max-md:bottom-4 max-md:-translate-x-1/2 z-10">
         <div className="pointer-events-auto rounded-2xl bg-white/95 shadow-md overflow-hidden max-md:rounded-xl">
           <div className="grid grid-cols-3 divide-x divide-neutral-200">
             {/* Prev */}

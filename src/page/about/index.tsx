@@ -1,4 +1,4 @@
-import { Row, Col, Typography, Card } from "antd";
+import { Row, Col, Card } from "antd";
 import {
   ArrowUpOutlined,
   UsergroupAddOutlined,
@@ -6,41 +6,29 @@ import {
   AimOutlined,
 } from "@ant-design/icons";
 
-const { Title, Paragraph } = Typography;
 export default function AboutPage() {
   return (
     <main>
       {/* Hero Section */}
-      <section
-        style={{
-          background: "#263c54",
-          color: "#fff",
-          padding: "4rem 1rem",
-          textAlign: "center",
-        }}
-      >
-        <Title style={{ color: "#fff", marginBottom: 16 }}>Giới thiệu</Title>
-        <Paragraph style={{ color: "#e6f7ff", fontSize: 26 }}>
+      <section className="bg-[#263c54] text-white py-16 px-4 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">Giới thiệu</h1>
+        <p
+          className="text-[#e6f7ff] text-xl md:text-2xl"
+          style={{ fontSize: 26 }}
+        >
           TỪ KỸ SƯ ĐIỆN ĐẾN TƯ VẤN ĐẦU TƯ
-        </Paragraph>
+        </p>
       </section>
 
-      <section style={{ padding: "4rem 1rem", background: "#f5f5f5" }}>
+      <section className="py-16 px-4 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <Row gutter={32} align="middle" justify="center">
             <Col xs={24} md={12}>
-              <div
-                style={{
-                  height: 500,
-                  overflow: "hidden",
-                  borderRadius: 12,
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
-                }}
-              >
+              <div className="h-[500px] overflow-hidden rounded-xl shadow-md">
                 <img
                   src="/professional-asian-financial-advisor-in-office.jpg"
                   alt="Anh Tuấn"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </Col>
@@ -84,42 +72,38 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements Section */}
-      <section style={{ padding: "4rem 1rem" }}>
-        <h2 className="text-center text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
+      <section className="py-16 px-4">
+        <h2 className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl">
           Thành tựu nổi bật
         </h2>
-        <Row gutter={[24, 24]} justify="center" style={{ marginTop: 32 }}>
+        <Row gutter={[24, 24]} justify="center" className="mt-8">
           {[
             {
-              icon: <ArrowUpOutlined className="!text-[#0bce80]" />,
+              icon: <ArrowUpOutlined />,
               value: "10+",
               label: "Năm kinh nghiệm",
             },
             {
-              icon: <UsergroupAddOutlined className="!text-[#0bce80]" />,
+              icon: <UsergroupAddOutlined />,
               value: "500+",
               label: "Học viên đã đào tạo",
             },
             {
-              icon: <TrophyOutlined className="!text-[#0bce80]" />,
+              icon: <TrophyOutlined />,
               value: "25-35%",
               label: "Tỷ suất sinh lời/năm",
             },
             {
-              icon: <AimOutlined className="!text-[#0bce80]" />,
+              icon: <AimOutlined />,
               value: "95%",
               label: "Học viên hài lòng",
             },
           ].map((item, i) => (
             <Col xs={24} md={12} lg={6} key={i}>
-              <Card bordered hoverable style={{ textAlign: "center" }}>
-                <div
-                  style={{ fontSize: 52, color: "#1677ff", marginBottom: 16 }}
-                >
-                  {item.icon}
-                </div>
-                <h2 style={{ fontSize: 42, color: "#ff0017" }}>{item.value}</h2>
-                <p style={{ fontSize: 32, color: "#ff0017" }}>{item.label}</p>
+              <Card bordered hoverable className="text-center">
+                <div className="text-5xl text-[#0bce80] mb-4">{item.icon}</div>
+                <h2 className="text-4xl text-[#ff0017]">{item.value}</h2>
+                <p className="text-2xl text-[#ff0017]">{item.label}</p>
               </Card>
             </Col>
           ))}
@@ -127,15 +111,15 @@ export default function AboutPage() {
       </section>
 
       {/* Investment System Section */}
-      <section style={{ padding: "4rem 1rem" }}>
-        <h2 className="text-center text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
+      <section className="py-16 px-4">
+        <h2 className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl">
           Hệ thống đầu tư AI
         </h2>
-        <div style={{ maxWidth: 1024, margin: "0 auto", marginTop: 32 }}>
-          <p style={{ fontSize: 24, textAlign: "center" }}>
+        <div className="max-w-[1024px] mx-auto mt-8">
+          <p className="text-center text-[24px]">
             Hệ thống đầu tư của tôi được xây dựng dựa trên 4 trụ cột chính:
           </p>
-          <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+          <Row gutter={[24, 24]} className="mt-6">
             {[
               {
                 h2: "🚀 ROBOT AI SĂN CỔ PHIẾU ĐỘT PHÁ",
@@ -159,9 +143,9 @@ export default function AboutPage() {
               },
             ].map((item, i) => (
               <Col xs={24} md={12} key={i}>
-                <Card bordered>
-                  <h2 style={{ fontSize: 24 }}>{item.h2}</h2>
-                  <p style={{ fontSize: 16 }}>{item.content}</p>
+                <Card bordered className="h-full">
+                  <h2 className="text-xl">{item.h2}</h2>
+                  <p className="text-base">{item.content}</p>
                 </Card>
               </Col>
             ))}
@@ -170,11 +154,11 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy Section */}
-      <section style={{ padding: "4rem 1rem", background: "#f5f5f5" }}>
-        <h2 className="text-center text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl">
+      <section className="py-16 px-4 bg-[#f5f5f5]">
+        <h2 className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl">
           Triết lý đầu tư
         </h2>
-        <div style={{ maxWidth: 800, margin: "0 auto", marginTop: 32 }}>
+        <div className="max-w-[800px] mx-auto mt-8">
           {[
             {
               h2: "1. Đầu tư dựa trên hệ thống, không cảm tính",
@@ -197,9 +181,9 @@ export default function AboutPage() {
                 "Thị trường luôn thay đổi. Nhà đầu tư thành công là người không ngừng học hỏi, thích nghi và cải thiện hệ thống của mình.",
             },
           ].map((item, i) => (
-            <Card key={i} style={{ marginBottom: 24 }}>
-              <h2 style={{ fontSize: 32 }}>{item.h2}</h2>
-              <p style={{ fontSize: 24 }}>{item.content}</p>
+            <Card key={i} className="mb-6">
+              <h2 className="text-2xl">{item.h2}</h2>
+              <p className="text-lg">{item.content}</p>
             </Card>
           ))}
         </div>

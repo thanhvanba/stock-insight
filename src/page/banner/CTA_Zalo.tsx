@@ -1,65 +1,43 @@
 //@ts-nocheck
-import Title from "antd/es/typography/Title";
 import Banner from "./Banner";
 import TextBox from "./TextBox";
-import { Button, Space } from "antd";
-import Paragraph from "antd/es/typography/Paragraph";
 
 export const CallToActionZalo = () => (
-  <Banner height="280px" backgroundImage="https://picsum.photos/800/280">
+  <Banner
+    height="auto"
+    backgroundImage="https://picsum.photos/800/280"
+    className="py-10 md:py-16 bg-cover bg-center"
+  >
     <TextBox align="center" maxWidth="100%">
-      <Title
-        style={{ color: "#fff", fontSize: "2.2rem", marginBottom: "16px" }}
-        level={2}
-      >
+      <h2 className="text-white font-bold text-2xl sm:text-3xl md:text-4xl leading-tight mb-4 px-4">
         Thời đại AI - Mà không dùng AI để đầu tư là một sai lầm?
-      </Title>
-      <Paragraph
-        style={{
-          color: "rgba(255,255,255,0.85)",
-          fontSize: "2.2rem",
-        }}
-      >
+      </h2>
+
+      <p className="text-white/90 text-lg sm:text-xl md:text-2xl leading-snug max-w-3xl mx-auto mb-8 px-4">
         Thời đại AI - Mà không dùng AI để tìm kiếm cơ hội đầu tư là một sai lầm?
-      </Paragraph>
-      <Space size="middle">
+      </p>
+
+      <div className="flex flex-wrap justify-center gap-4">
         <a
           href="https://zalo.me/g/vvvtqz849"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ textDecoration: "none" }}
         >
-          <Button
-            type="primary"
-            size="large"
-            style={{
-              marginTop: "24px",
-              backgroundColor: "#fff",
-              color: "#1890ff",
-            }}
-          >
+          <button className="px-6 py-3 rounded-md text-base font-semibold bg-white text-[#1890ff] hover:bg-gray-100 w-full sm:w-auto transition">
             HỖ TRỢ ĐẶT LỆNH MIỄN PHÍ
-          </Button>
+          </button>
         </a>
+
         <a
           href="https://zalo.me/g/vvvtqz849"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ textDecoration: "none" }}
         >
-          <Button
-            type="primary"
-            size="large"
-            style={{
-              marginTop: "24px",
-              backgroundColor: "#fff",
-              color: "#1890ff",
-            }}
-          >
+          <button className="px-6 py-3 rounded-md text-base font-semibold bg-white text-[#1890ff] hover:bg-gray-100 w-full sm:w-auto transition">
             THAM GIA CLB "SIÊU CỔ PHIẾU"
-          </Button>
+          </button>
         </a>
-      </Space>
+      </div>
     </TextBox>
   </Banner>
 );

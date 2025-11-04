@@ -35,8 +35,8 @@ export default function Header() {
       >
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
-         <img src={logo} alt="Logo" className="h-16 w-16"/>
-          <Link to="/" className="flex items-center gap-2">
+          <img src={logo} alt="Logo" className="h-16 w-16" />
+          {/* <Link to="/" className="flex items-center gap-2">
             <h2 className="text-2xl font-semibold text-[#0bce80]">
               <center>
                 <span>LÊ TUẤN</span>
@@ -44,7 +44,7 @@ export default function Header() {
                 KỸ SƯ ĐẦU TƯ
               </center>
             </h2>
-          </Link>
+          </Link> */}
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">

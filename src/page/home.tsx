@@ -145,21 +145,21 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <Row gutter={[48, 48]} align="middle">
             <Col xs={24} md={12}>
-              <h2 className="text-[#0bce80] text-2xl font-bold text-foreground md:text-3xl mb-3">
+              <h2 className="text-[#0bce80] text-xl font-bold text-foreground md:text-3xl mb-3">
                 Giới thiệu
               </h2>
-              <p className="text-gray-600 text-2xl">
+              <p className="text-gray-600 text-xl md:text-2xl">
                 Chúng tôi là Kỹ Sư Đầu Tư – đội ngũ kiến tạo nên lợi nhuận bền
                 vững cho nhà đầu tư cá nhân bằng sức mạnh của Trí tuệ Nhân tạo
                 (AI) và Phân tích Định lượng chuyên sâu.
               </p>
               <br />
-              <p className="text-gray-600 text-2xl">
+              <p className="text-gray-600 text-xl md:text-2xl">
                 Chúng tôi loại bỏ cảm xúc và sự mơ hồ khỏi giao dịch chứng khoán
                 bằng một hệ thống 3 lớp công nghệ đột phá:
               </p>
               <br />
-              <p className="text-gray-800 font-medium text-2xl">
+              <p className="text-gray-800 font-medium text-xl md:text-2xl">
                 Công nghệ + Chiến lược + Hệ thống = Lợi nhuận bền vững
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
@@ -188,10 +188,10 @@ export default function HomePage() {
                     Đọc thêm về tôi <ArrowRightOutlined />
                   </button>
                 </Link>
-                <div className="flex">
+                <div className="flex justify-center items-center">
                   <FaPhoneAlt size={32} color="#0bce80" />
                   <div className="ml-4">
-                    <h2 className="font-medium text-2xl mb-1.5">
+                    <h2 className="font-medium text-base md:text-2xl mb-1.5">
                       Liên hệ tư vấn
                     </h2>
                     <p className="text-gray-600 text-lg">077 710 7264</p>
@@ -374,7 +374,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="pt-6">
                   <div className="mb-3 flex items-center gap-4 text-sm text-gray-500">
                     <span className="inline-flex items-center gap-1">
                       <CalendarOutlined className="h-3.5 w-3.5" />
@@ -560,8 +560,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <VNIndexWidget />
+      <div className="lg:block hidden">
+        <VNIndexWidget />
+      </div>
     </main>
   );
 }

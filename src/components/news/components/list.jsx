@@ -100,128 +100,187 @@ export default function List() {
   return (
     <>
       <Row gutter={[16, 16]}>
-        {/* Column 1: News list with avatar left and title right */}
-        <Col xs={24} sm={24} md={6}>
-          <Card title="Tin tức">
-            <AntList
-              itemLayout="horizontal"
-              dataSource={list}
-              renderItem={(item) => (
-                <AntList.Item>
-                  <AntList.Item.Meta
-                    avatar={(() => {
-                      const src =
-                        resolveImageUrl(item) || item.thumbnail || item.image;
-                      return src ? (
-                        <Avatar src={src} shape="square" size={120} />
-                      ) : (
-                        <Avatar shape="square" size={120}>
-                          N
-                        </Avatar>
-                      );
-                    })()}
-                    title={
-                      <a
-                        role="button"
-                        onClick={() => openModal(item.postID)}
+        {/* Column 1: Featured News with large image */}
+        <Col xs={24} md={12}>
+          <Card title="Tin nổi bật" className="featured-news">
+            {featured[0] && (
+              <div className="featured-news-item">
+                <div className="featured-image">
+                  {(() => {
+                    const src = resolveImageUrl(featured[0]) || featured[0].thumbnail || featured[0].image;
+                    return src ? (
+                      <img
+                        src={src}
+                        alt={featured[0].title}
                         style={{
-                          cursor: "pointer",
-                          color: "inherit",
-                          textDecoration: "underline",
+                          width: '100%',
+                          height: '300px',
+                          objectFit: 'cover',
+                          borderRadius: '8px'
+                        }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '300px',
+                          background: '#f0f2f5',
+                          borderRadius: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
                         }}
                       >
-                        {item.title || item.name || "Untitled"}
-                      </a>
-                    }
-                    description={item.date}
-                  />
-                </AntList.Item>
-              )}
-            />
-          </Card>
-        </Col>
-
-        {/* Column 2: Popular Symbols */}
-        <Col xs={24} sm={24} md={6}>
-          <Card title="Tin tức">
-            <AntList
-              itemLayout="horizontal"
-              dataSource={list}
-              renderItem={(item) => (
-                <AntList.Item>
-                  <AntList.Item.Meta
-                    avatar={(() => {
-                      const src =
-                        resolveImageUrl(item) || item.thumbnail || item.image;
-                      return src ? (
-                        <Avatar src={src} shape="square" size={120} />
-                      ) : (
-                        <Avatar shape="square" size={120}>
-                          N
-                        </Avatar>
-                      );
-                    })()}
-                    title={
-                      <a
-                        role="button"
-                        onClick={() => openModal(item.postID)}
-                        style={{
-                          cursor: "pointer",
-                          color: "inherit",
-                          textDecoration: "underline",
-                        }}
-                      >
-                        {item.title || item.name || "Untitled"}
-                      </a>
-                    }
-                    description={item.date}
-                  />
-                </AntList.Item>
-              )}
-            />
-          </Card>
-        </Col>
-
-        <NewsModal
-          postId={selectedId}
-          visible={modalVisible}
-          onClose={closeModal}
-        />
-
-        {/* Column 3: Featured */}
-        <Col xs={24} sm={24} md={6}>
-          <Card title="Tin nổi bật">
-            <ul style={{ paddingLeft: 16 }}>
-              {featured.map((it) => (
-                <li
-                  key={it.id || it.postId || Math.random()}
-                  style={{ marginBottom: 8 }}
-                >
-                  <a href={`#/news/${it.id || it.postId}`}>
-                    {it.title || it.name}
+                        No Image
+                      </div>
+                    );
+                  })()}
+                </div>
+                <h3 style={{ margin: '16px 0 8px', fontSize: '20px' }}>
+                  <a
+                    role="button"
+                    onClick={() => openModal(featured[0].postID)}
+                    style={{
+                      cursor: 'pointer',
+                      color: 'inherit'
+                    }}
+                  >
+                    {featured[0].title || featured[0].name || "Untitled"}
                   </a>
-                </li>
-              ))}
-            </ul>
+                </h3>
+                <p style={{ color: '#666', marginBottom: '16px' }}>{featured[0].date}</p>
+              </div>
+            )}
+            <AntList
+              itemLayout="horizontal"
+              dataSource={list.slice(1, 5)}
+              renderItem={(item) => (
+                <AntList.Item>
+                  <AntList.Item.Meta
+                    avatar={(() => {
+                      const src = resolveImageUrl(item) || item.thumbnail || item.image;
+                      return src ? (
+                        <Avatar src={src} shape="square" size={80} />
+                      ) : (
+                        <Avatar shape="square" size={80}>N</Avatar>
+                      );
+                    })()}
+                    title={
+                      <a
+                        role="button"
+                        onClick={() => openModal(item.postID)}
+                        style={{
+                          cursor: 'pointer',
+                          color: 'inherit'
+                        }}
+                      >
+                        {item.title || item.name || "Untitled"}
+                      </a>
+                    }
+                    description={item.date}
+                  />
+                </AntList.Item>
+              )}
+            />
           </Card>
         </Col>
 
-        {/* Column 4: Trending / Most viewed */}
-        <Col xs={24} sm={24} md={6}>
-          <Card title="TOP cổ phiếu biến động">
-            <ul style={{ paddingLeft: 16 }}>
-              {movers.map((it) => (
-                <li
-                  key={it.id || it.postId || Math.random()}
-                  style={{ marginBottom: 8 }}
+        {/* Column 2: Regular News List */}
+        <Col xs={24} md={8}>
+          <Card title="Tin tức mới nhất">
+            <AntList
+              itemLayout="vertical"
+              dataSource={list.slice(6, 12)}
+              renderItem={(item) => (
+                <AntList.Item
+                  extra={(() => {
+                    const src = resolveImageUrl(item) || item.thumbnail || item.image;
+                    return src ? (
+                      <img
+                        width={120}
+                        alt={item.title}
+                        src={src}
+                        style={{ borderRadius: '4px' }}
+                      />
+                    ) : null;
+                  })()}
                 >
-                  <p>{it}</p>
-                </li>
-              ))}
-            </ul>
+                  <AntList.Item.Meta
+                    title={
+                      <a
+                        role="button"
+                        onClick={() => openModal(item.postID)}
+                        style={{
+                          cursor: 'pointer',
+                          color: 'inherit'
+                        }}
+                      >
+                        {item.title || item.name || "Untitled"}
+                      </a>
+                    }
+                    description={item.date}
+                  />
+                </AntList.Item>
+              )}
+            />
+          </Card>
+        </Col>
+
+        {/* Column 3: Market Movers */}
+        <Col xs={24} md={4}>
+          <Card
+            title="TOP cổ phiếu biến động"
+            bodyStyle={{ padding: '12px' }}
+          >
+            {movers && movers.length > 0 ? (
+              <ul style={{
+                listStyle: 'none',
+                padding: 0,
+                margin: 0
+              }}>
+                {movers.map((it, index) => (
+                  <li
+                    key={index}
+                    style={{
+                      padding: '8px',
+                      borderBottom: index < movers.length - 1 ? '1px solid #f0f0f0' : 'none',
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
+                  >
+                    <span style={{
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '50%',
+                      background: index < 3 ? '#ff4d4f' : '#f5f5f5',
+                      color: index < 3 ? 'white' : '#666',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginRight: '8px',
+                      fontSize: '12px',
+                      fontWeight: 'bold'
+                    }}>
+                      {index + 1}
+                    </span>
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div style={{ textAlign: 'center', color: '#999' }}>
+                Không có dữ liệu
+              </div>
+            )}
           </Card>
         </Col>
       </Row>
+
+      <NewsModal
+        postId={selectedId}
+        visible={modalVisible}
+        onClose={closeModal}
+      />
     </>
   );
 }
