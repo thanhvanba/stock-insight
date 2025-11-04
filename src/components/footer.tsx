@@ -1,5 +1,5 @@
 import { Row, Col, Typography, Divider } from "antd";
-import { FaYoutube, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaYoutube, FaEnvelope, FaPhone, FaTiktok } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
 const { Title, Text } = Typography;
@@ -17,26 +17,34 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.youtube.com/@letuanstock84"
                 className="flex h-9 w-9 items-center justify-center rounded-lg !text-white !bg-[#0bce80] transition hover:bg-stone-500/30"
                 aria-label="YouTube"
               >
                 <FaYoutube className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="mailto:tuan.hvac2014@gmail.com"
                 className="flex h-9 w-9 items-center justify-center rounded-lg !text-white !bg-[#0bce80] transition hover:bg-stone-500/30"
                 aria-label="Email"
               >
                 <FaEnvelope className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="tel:0777107264"
                 className="flex h-9 w-9 items-center justify-center rounded-lg !text-white !bg-[#0bce80] transition hover:bg-stone-500/30"
                 aria-label="Phone"
               >
                 <FaPhone className="h-5 w-5" />
               </a>
+              <a
+                href="https://www.tiktok.com/@kysuchungkhoan84"
+                className="flex h-9 w-9 items-center justify-center rounded-lg !text-white !bg-[#0bce80] transition hover:bg-stone-500/30"
+                aria-label="Tiktok"
+              >
+                <FaTiktok className="h-5 w-5" />
+              </a>
+
             </div>
           </Col>
 
@@ -98,11 +106,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <FaEnvelope className="h-4 w-4 !text-[#0bce80]" />
-                <span>contact@dautu.vn</span>
+                <span>tuan.hvac2014@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaPhone className="h-4 w-4 !text-[#0bce80]" />
-                <span>0123 456 789</span>
+                <span>077 710 7264</span>
               </div>
             </div>
           </Col>
@@ -115,7 +123,7 @@ export default function Footer() {
           mang lại kiến thức và góc nhìn cho các bạn khi tham gia đầu tư, còn sự
           quyết định nằm ở chính các bạn.
         </Text>
-        <Text className="block text-center text-xs !text-white/70">
+        <Text className="block text-center text-xs !text-white/70 mb-5">
           &copy; 2025 Đầu Tư Cùng Anh Tuấn. All rights reserved.
         </Text>
       </div>
