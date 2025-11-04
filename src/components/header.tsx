@@ -3,6 +3,7 @@ import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 import { Button, Drawer, Menu } from "antd";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "/src/assets/images/logo.png";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,9 +35,14 @@ export default function Header() {
       >
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
+         <img src={logo} alt="Logo" className="h-16 w-16"/>
           <Link to="/" className="flex items-center gap-2">
             <h2 className="text-2xl font-semibold text-[#0bce80]">
-              KỸ SƯ ĐẦU TƯ
+              <center>
+                <span>LÊ TUẤN</span>
+                <br />
+                KỸ SƯ ĐẦU TƯ
+              </center>
             </h2>
           </Link>
 
@@ -65,7 +71,7 @@ export default function Header() {
 
             <Link to="/lien-he">
               <button className="bg-[#0bce80] text-white rounded-full px-5 py-2 font-medium text-sm transition-all duration-200 hover:bg-white hover:text-[#0bce80] border border-transparent hover:border-[#0bce80]">
-                Yêu cầu tư vấn
+                Liên hệ tư vấn
               </button>
             </Link>
           </div>
