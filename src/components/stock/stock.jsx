@@ -1,5 +1,7 @@
+//ts-nocheck
 import React from "react";
-import { useLiveVnIndex } from "./useLiveVnIndex";
+import { useLiveVnIndex, INDEX_META } from "./useLiveVnIndex";
+
 
 const nf0 = new Intl.NumberFormat("vi-VN", { maximumFractionDigits: 0 });
 const nf2 = new Intl.NumberFormat("vi-VN", {
@@ -17,6 +19,7 @@ export default function VNIndexWidget() {
   if (loading) return <div>Đang tải…</div>;
   if (error) return <div style={{ color: "red" }}>Lỗi: {String(error)}</div>;
 
+
   return (
     <div
       style={{
@@ -25,14 +28,15 @@ export default function VNIndexWidget() {
         gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
       }}
     >
-      {data?.map((r) => {
+      {data?.map((r,idx) => {
         const up = r.parsed.delta >= 0;
+        const meta = r.meta ?? INDEX_META[r.mc] ?? { code: r.mc, name: r.mc };
         return (
           <div
-            key={r.mc}
+            key={idx}
             style={{ border: "1px solid #eee", borderRadius: 12, padding: 12 }}
           >
-            <div style={{ fontWeight: 700 }}>{r.meta.name}</div>
+            <div style={{ fontWeight: 700 }}>{meta.name}</div>
             <div
               style={{
                 fontSize: 24,
