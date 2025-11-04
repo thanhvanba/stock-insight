@@ -26,7 +26,7 @@ export default function AboutPage() {
             <Col xs={24} md={12}>
               <div className="h-[500px] overflow-hidden rounded-xl shadow-md">
                 <img
-                  src="/professional-asian-financial-advisor-in-office.jpg"
+                  src="../src/assets/images/kim-tu-do.jpg"
                   alt="Anh Tuấn"
                   className="w-full h-full object-cover"
                 />
@@ -36,10 +36,10 @@ export default function AboutPage() {
               <h2 className="font-medium text-5xl mb-6"></h2>
               <div className="space-y-3 text-lg text-gray-700">
                 <p>
-                  Xin chào, tôi là Tuấn. Tôi xin chia sẽ về hành trình thay đổi
-                  để sống sung túc và bình an hơn. Từ một kỹ sư điện, sau hơn 10
-                  năm làm việc trong ngành điện, tôi đã chuyển sang nghề tư vấn
-                  đầu tư tài chính từ năm 2015 đến nay.
+                  Xin chào, tôi là Lê Tuấn. Tôi xin chia sẽ về hành trình thay
+                  đổi để sống sung túc và bình an hơn. Từ một kỹ sư điện, sau
+                  hơn 10 năm làm việc trong ngành điện, tôi đã chuyển sang nghề
+                  tư vấn đầu tư tài chính từ năm 2015 đến nay.
                 </p>
                 <p></p>
                 <p>

@@ -103,7 +103,7 @@ export function useLiveVnIndex(
             meta: INDEX_META[r.mc] ?? { code: r.mc, name: r.mc },
           }));
           // sort theo mc cho UI ổn định
-          enhanced.sort((a, b) => a.mc.localeCompare(b.mc));
+          //enhanced.sort((a, b) => a.mc.localeCompare(b.mc));
           setData(enhanced);
         }
 
