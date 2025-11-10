@@ -1,4 +1,4 @@
-import { Row, Col, Card } from "antd";
+import { Row, Col, Card, Typography } from "antd";
 import {
   ArrowUpOutlined,
   UsergroupAddOutlined,
@@ -7,24 +7,42 @@ import {
 } from "@ant-design/icons";
 
 export default function AboutPage() {
+  const { Title, Paragraph } = Typography;
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-[#263c54] text-white py-16 px-4 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">Giới thiệu</h1>
-        <p
-          className="text-[#e6f7ff] text-xl md:text-2xl"
-          style={{ fontSize: 26 }}
+      <section
+        style={{
+          background: "#263c54",
+          color: "#fff",
+          padding: "4rem 1rem",
+          textAlign: "center",
+        }}
+      >
+        <Title
+          style={{ color: "#fff", marginBottom: 16 }}
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          Giới thiệu
+        </Title>
+        <Paragraph
+          style={{ color: "#e6f7ff", fontSize: 16 }}
+          data-aos="fade-right"
+          data-aos-duration="1000"
         >
           TỪ KỸ SƯ ĐIỆN ĐẾN TƯ VẤN ĐẦU TƯ
-        </p>
+        </Paragraph>
       </section>
-
       <section className="py-16 px-4 bg-[#f5f5f5]">
         <div className="container mx-auto px-4">
           <Row gutter={32} align="middle" justify="center">
             <Col xs={24} md={12}>
-              <div className="h-[500px] overflow-hidden rounded-xl shadow-md">
+              <div
+                className="h-[500px] overflow-hidden rounded-xl shadow-md"
+                data-aos="flip-left"
+                data-aos-duration="500"
+              >
                 <img
                   src="../src/assets/images/kim-tu-do.jpg"
                   alt="Anh Tuấn"
@@ -35,25 +53,24 @@ export default function AboutPage() {
             <Col xs={24} md={12}>
               <h2 className="font-medium text-5xl mb-6"></h2>
               <div className="space-y-3 text-lg text-gray-700">
-                <p>
+                <p data-aos="fade-left" data-aos-duration="500">
                   Xin chào, tôi là Lê Tuấn. Tôi xin chia sẽ về hành trình thay
                   đổi để sống sung túc và bình an hơn. Từ một kỹ sư điện, sau
                   hơn 10 năm làm việc trong ngành điện, tôi đã chuyển sang nghề
                   tư vấn đầu tư tài chính từ năm 2015 đến nay.
                 </p>
-                <p></p>
-                <p>
+                <p data-aos="fade-left" data-aos-duration="1000">
                   Hơn 10 năm với nghề thi công & thiết kế điện đã rèn cho tôi :
                   sự chính xác, kiên nhẫn, kỷ luật và tư duy hệ thống
                 </p>
-                <p>
+                <p data-aos="fade-left" data-aos-duration="1500">
                   Sau đó 2015 đến với nghề tư vấn đầu tư, đúng đam mê, đúng môi
                   trường đã giúp tôi có nhiều thời gian hơn cho bản thân, gia
                   đình và tự chủ được thời gian Từ đó tâm trí thoải mái, sức
                   khoẻ tốt hơn nên có thể tạo ra nhiều giá trị, tài sản bền vững
                   hơn cho các con sau này.
                 </p>
-                <p>
+                <p data-aos="fade-left" data-aos-duration="2000">
                   Giờ tôi vẫn là kỹ sư nhưng là KỸ SƯ ĐẦU TƯ (TÀI CHÍNH): Thiết
                   kế & quản lý hệ thống tài chính cá nhân cho chính mình và nhà
                   đầu tư. Phù hợp với KIM TỨ ĐỒ : dùng tiền làm việc cho mình,
@@ -61,7 +78,11 @@ export default function AboutPage() {
                   sẽ chia sẽ các bước và phương pháp giao dịch thành công lại
                   cho bạn.
                 </p>
-                <p className="font-medium">
+                <p
+                  className="font-medium"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   Sứ mệnh của tôi là chia sẻ kiến thức và kinh nghiệm để giúp
                   các nhà đầu tư Việt Nam đầu tư thông minh và bền vững hơn.
                 </p>
@@ -73,10 +94,20 @@ export default function AboutPage() {
 
       {/* Achievements Section */}
       <section className="py-16 px-4">
-        <h2 className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl">
+        <h2
+          className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           Thành tựu nổi bật
         </h2>
-        <Row gutter={[24, 24]} justify="center" className="mt-8">
+        <Row
+          gutter={[24, 24]}
+          justify="center"
+          className="mt-8"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
           {[
             {
               icon: <ArrowUpOutlined />,
@@ -112,11 +143,19 @@ export default function AboutPage() {
 
       {/* Investment System Section */}
       <section className="py-16 px-4">
-        <h2 className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl">
+        <h2
+          className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
           Hệ thống đầu tư AI
         </h2>
         <div className="max-w-[1024px] mx-auto mt-8">
-          <p className="text-center text-[24px]">
+          <p
+            className="text-center text-[24px]"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
             Hệ thống đầu tư của tôi được xây dựng dựa trên 4 trụ cột chính:
           </p>
           <Row gutter={[24, 24]} className="mt-6">
@@ -142,7 +181,13 @@ export default function AboutPage() {
                   "Tín hiệu MUA/BÁN kèm theo *Giá Cắt Lỗ (Stop-loss)* và *Giá Mục Tiêu (Take-profit)* rõ ràng. Hệ thống giúp bạn tự động tính toán kích thước vị thế, đảm bảo kỷ luật và bảo toàn vốn tối đa.",
               },
             ].map((item, i) => (
-              <Col xs={24} md={12} key={i}>
+              <Col
+                xs={24}
+                md={12}
+                key={i}
+                data-aos="fade-right"
+                data-aos-duration="1000"
+              >
                 <Card bordered className="h-full">
                   <h2 className="text-xl">{item.h2}</h2>
                   <p className="text-base">{item.content}</p>
@@ -155,10 +200,18 @@ export default function AboutPage() {
 
       {/* Philosophy Section */}
       <section className="py-16 px-4 bg-[#f5f5f5]">
-        <h2 className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl">
+        <h2
+          className="text-center text-[#0bce80] text-2xl font-bold md:text-3xl"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           Triết lý đầu tư
         </h2>
-        <div className="max-w-[800px] mx-auto mt-8">
+        <div
+          className="max-w-[800px] mx-auto mt-8"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
           {[
             {
               h2: "1. Đầu tư dựa trên hệ thống, không cảm tính",

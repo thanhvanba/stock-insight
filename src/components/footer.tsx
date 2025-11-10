@@ -6,11 +6,11 @@ const { Title, Text } = Typography;
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-4 bg-[#172f3a] text-white">
-      <div className="max-w-6xl mx-auto">
+    <footer className="py-16 px-4 bg-[#172f3a] text-white">
+      <div className="container">
         <Row gutter={[32, 32]}>
           {/* About */}
-          <Col xs={24} md={6}>
+          <Col xs={24} md={6} data-aos="fade-right" data-aos-duration="1000">
             <h3 className="text-2xl font-bold mb-4">KỸ SƯ ĐẦU TƯ</h3>
             <p className="text-sm mb-6 opacity-90 leading-relaxed">
               Hệ thống đầu tư chứng khoán kết hợp AI và kinh nghiệm thực chiến.
@@ -44,12 +44,11 @@ export default function Footer() {
               >
                 <FaTiktok className="h-5 w-5" />
               </a>
-
             </div>
           </Col>
 
           {/* Quick Links */}
-          <Col xs={24} md={6}>
+          <Col xs={24} md={6} data-aos="fade-up" data-aos-duration="1000">
             <Title level={4} className="!text-white !mb-4">
               Liên kết
             </Title>
@@ -73,7 +72,7 @@ export default function Footer() {
           </Col>
 
           {/* Courses */}
-          <Col xs={24} md={6}>
+          <Col xs={24} md={6} data-aos="fade-up" data-aos-duration="1000">
             <Title level={4} className="!text-white !mb-4">
               Khoá học
             </Title>
@@ -95,7 +94,7 @@ export default function Footer() {
           </Col>
 
           {/* Contact */}
-          <Col xs={24} md={6}>
+          <Col xs={24} md={6} data-aos="fade-left" data-aos-duration="1000">
             <Title level={4} className="!text-white !mb-4">
               Liên hệ
             </Title>
@@ -117,13 +116,18 @@ export default function Footer() {
         </Row>
 
         <Divider className="!border-white/20 !mt-12" />
-        <Text className="block text-center text-xs !text-white/70">
+        <Text
+          className="block text-center text-xs !text-white/70 mb-4"
+          data-aos="zoom-out"
+          data-aos-duration="1000"
+        >
           Tất cả thông tin trong videos và bài viết đều không phải là lời khuyên
-          đầu tư.<br/>Hoạt động đầu tư luôn tiềm ẩn nhiều rủi ro tài chính. <br/>Kênh chỉ
-          mang lại kiến thức và góc nhìn cho các bạn khi tham gia đầu tư, còn sự
-          quyết định nằm ở chính các bạn.
-        </Text>
-        <Text className="block text-center text-xs !text-white/70 mb-5">
+          đầu tư.
+          <br />
+          Hoạt động đầu tư luôn tiềm ẩn nhiều rủi ro tài chính. <br />
+          Kênh chỉ mang lại kiến thức và góc nhìn cho các bạn khi tham gia đầu
+          tư, còn sự quyết định nằm ở chính các bạn.
+          <br />
           &copy; 2025 Đầu Tư Cùng Anh Tuấn. All rights reserved.
         </Text>
       </div>

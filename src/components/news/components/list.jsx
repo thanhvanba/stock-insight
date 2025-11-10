@@ -98,11 +98,13 @@ export default function List() {
   };
 
   return (
-    <>
+    <div className="container">
       <Row gutter={[16, 16]}>
         {/* Column 1: Featured News with large image */}
         <Col xs={24} md={12}>
-          <Card title="Tin nổi bật" className="featured-news">
+          <Card title="Tin nổi bật" className="featured-news"
+            data-aos="zoom-out-right"
+            data-aos-duration="1000">
             {featured[0] && (
               <div className="featured-news-item">
                 <div className="featured-image">
@@ -187,7 +189,9 @@ export default function List() {
 
         {/* Column 2: Regular News List */}
         <Col xs={24} md={8}>
-          <Card title="Tin tức mới nhất">
+          <Card title="Tin tức mới nhất"
+            data-aos="zoom-out-up"
+            data-aos-duration="1000">
             <AntList
               itemLayout="vertical"
               dataSource={list.slice(6, 12)}
@@ -231,6 +235,8 @@ export default function List() {
           <Card
             title="TOP cổ phiếu biến động"
             bodyStyle={{ padding: '12px' }}
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
           >
             {movers && movers.length > 0 ? (
               <ul style={{
@@ -281,6 +287,6 @@ export default function List() {
         visible={modalVisible}
         onClose={closeModal}
       />
-    </>
+    </div>
   );
 }

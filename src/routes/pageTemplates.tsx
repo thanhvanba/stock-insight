@@ -1,6 +1,6 @@
 // pageTemplates.tsx
 import AboutPage from "../page/about";
-import BlogPage from "../page/blog";
+import BlogPage from "../page/blogs";
 import CoursePage from "../page/course";
 import HomePage from "../page/home";
 import PageDetail from "../page/menu/PageDetail";

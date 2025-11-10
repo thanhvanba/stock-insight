@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import AboutPage from "../page/about";
 import Bio from "../page/bio";
-import BlogPage from "../page/blog";
-import BlogDetail from "../page/blog/BlogDetail";
+import BlogPage from "../page/blogs";
+import BlogDetail from "../page/blogs/BlogDetail";
 import CoursePage from "../page/course";
 import HomePage from "../page/home";
 import NewsPage from "../page/news";
@@ -16,6 +16,7 @@ export default function AppRoutes() {
       <Route path="/bai-viet/:slug" element={<BlogDetail />} />
       <Route path="/tin-tuc" element={<NewsPage />} />
       <Route path="/khoa-hoc" element={<CoursePage />} />
+      <Route path="/khoa-hoc/:slug" element={<BlogDetail />} />
       <Route path="/lien-he" element={<Bio />} />
 
       {/* <Route path="/posts/:slug" element={<Navigate to=".." replace />} />

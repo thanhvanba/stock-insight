@@ -12,8 +12,7 @@ const BlogDetail: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-
-  console.log(slug)
+  console.log(slug);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -87,7 +86,7 @@ const BlogDetail: React.FC = () => {
       </div> */}
       <div className="container mx-auto px-4 py-8 ">
         {/* Thêm my-12 để tạo khoảng trống trên và dưới */}
-        <article className="max-w-4xl mx-auto my-16">
+        <article className="">
           <h1 className="text-4xl font-bold my-4">{blog.title}</h1>
           <p className="text-gray-500 mb-4">
             Ngày đăng: {new Date(blog.timestamp).toLocaleString()}

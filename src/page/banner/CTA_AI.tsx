@@ -12,21 +12,37 @@ export const CallToActionAI = () => {
       style={{ backgroundImage: "url('https://picsum.photos/800/280')" }}
     >
       <div className="max-w-4xl mx-auto text-center px-4">
-        <h2 className="text-white font-bold text-2xl sm:text-3xl md:text-5xl leading-tight mb-4">
+        <h2
+          className="text-white font-bold text-2xl sm:text-3xl md:text-5xl leading-tight mb-4"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
           Chỉ có 5% nhà đầu tư thành công nhờ "HỆ THỐNG"
         </h2>
 
-        <p className="text-white/85 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8">
+        <p
+          className="text-white/85 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
           Phân tích dữ liệu bằng AI • Phân tích kỹ thuật tự động • Xác định dòng
           tiền thị trường • Kinh nghiệm quản lý rủi ro
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <button className="px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-md text-base font-medium w-full sm:w-auto">
+          <button
+            className="px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-md text-base font-medium w-full sm:w-auto"
+            data-aos="fade-up-right"
+            data-aos-duration="1000"
+          >
             HỆ THỐNG KIẾN THỨC
           </button>
 
-          <button className="px-6 py-3 bg-white text-gray-900 hover:bg-gray-200 rounded-md text-base font-medium w-full sm:w-auto">
+          <button
+            className="px-6 py-3 bg-white text-gray-900 hover:bg-gray-200 rounded-md text-base font-medium w-full sm:w-auto"
+            data-aos="fade-up-left"
+            data-aos-duration="1000"
+          >
             HỆ THỐNG AI ĐẦU TƯ
           </button>
         </div>

@@ -22,7 +22,11 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ isSticky }) => {
   const currentYear = new Date().getFullYear();
   return (
-    <div className="max-w-sm mx-auto flex justify-center">
+    <div
+      className="max-w-sm mx-auto flex justify-center"
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+    >
       <p
         className={`absolute ${
           isSticky ? "sticky mt-4 bottom-4" : "static bottom-4"

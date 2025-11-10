@@ -1,15 +1,47 @@
-import { Card, Typography, Row, Col, Image, Tag } from "antd";
+import {
+  Card,
+  Typography,
+  Row,
+  Col,
+  Image,
+  Tag,
+  Pagination,
+  message,
+} from "antd";
 import {
   CheckCircleOutlined,
-  ClockCircleOutlined,
   VideoCameraOutlined,
   TeamOutlined,
   BookOutlined,
+  ArrowRightOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { adminAPI } from "../../service";
 
 const { Title, Paragraph, Text } = Typography;
 
 export default function CoursePage() {
+  const [filteredBlogs, setFilteredBlogs] = useState<any[]>([]);
+
+  // 🔹 Lấy danh sách blog từ API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Lấy danh sách bài viết
+        const blogRes = await adminAPI.getBlogsByCategory(
+          "690ef204c89c48db2d4e4f54"
+        );
+        const blogs = blogRes.data || [];
+        setFilteredBlogs(blogs);
+      } catch (err) {
+        console.error("Error fetching blogs or categories:", err);
+        message.error("Không thể tải dữ liệu bài viết hoặc danh mục.");
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <main>
       <section
@@ -20,10 +52,18 @@ export default function CoursePage() {
           textAlign: "center",
         }}
       >
-        <Title style={{ color: "#fff", marginBottom: 16 }}>
+        <Title
+          style={{ color: "#fff", marginBottom: 16 }}
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           Khóa học đầu tư
         </Title>
-        <Paragraph style={{ color: "#e6f7ff", fontSize: 16 }}>
+        <Paragraph
+          style={{ color: "#e6f7ff", fontSize: 16 }}
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
           Nâng cao kỹ năng đầu tư với các khóa học chuyên nghiệp
         </Paragraph>
       </section>
@@ -33,9 +73,13 @@ export default function CoursePage() {
         <div className="container mx-auto px-4">
           <Row gutter={[48, 48]} align="middle">
             <Col xs={24} md={12}>
-              <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+              <div
+                className="relative h-[500px] rounded-lg overflow-hidden shadow-xl"
+                data-aos="zoom-in-right"
+                data-aos-duration="1000"
+              >
                 <Image
-                  src="/technical-analysis-course-professional-charts.jpg"
+                  src="/technical-analysis-course.png"
                   alt="Paid Course"
                   className="object-cover"
                 />
@@ -46,24 +90,41 @@ export default function CoursePage() {
               <Tag
                 className="shrink-0 rounded-full px-3 py-1 text-xs font-semibold"
                 color="green"
+                data-aos="zoom-in"
+                data-aos-duration="2000"
               >
                 Có phí
               </Tag>
-              <h3 className="text-balance text-2xl font-bold leading-tight mt-6">
+              <h3
+                className="text-balance text-2xl font-bold leading-tight mt-6"
+                data-aos="fade-down-left"
+                data-aos-duration="1000"
+              >
                 Phân tích kỹ thuật cơ bản đến nâng cao
               </h3>
-              <p className="mb-6 text-pretty leading-relaxed">
-                Khóa học toàn diện về phân tích kỹ thuật, từ kiến thức nền tảng
-                đến chiến lược giao dịch chuyên nghiệp. Phù hợp cho cả người mới
-                và nhà đầu tư có kinh nghiệm muốn nâng cao kỹ năng.
+              <p
+                className="mb-6 text-pretty leading-relaxed"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+              >
+                Khóa học toàn diện về phân tích kỹ thuật, từ những kiến thức nền
+                tảng đến các chiến lược giao dịch chuyên sâu.
               </p>
 
-              <ul className="mb-6 space-y-2">
+              <ul
+                className="mb-6 space-y-2"
+                data-aos="zoom-out"
+                data-aos-duration="1000"
+              >
                 {[
-                  "40+ giờ video bài giảng",
-                  "Hệ thống bài tập thực hành",
-                  "Hỗ trợ trực tiếp từ giảng viên",
-                  "Chứng chỉ hoàn thành",
+                  "Tìm hiểu về cách đếm sóng, cách vẽ trendline xác định hỗ trợ và kháng cự, price action",
+                  "Các mẫu hình và cách cài đặt lệnh",
+                  "Giao dịch với MA và MACD,  phương pháp bắt đáy",
+                  "Hệ thống Ichimoku nâng cao, xác định điểm cân bằng và xu hướng tương lai",
+                  "Fibonaci và các đếm sóng Elliott",
+                  "Chỉ báo dòng tiền MFI, cách nhận diện cổ phiếu làm giá",
+                  "Ứng dụng các chỉ báo RSI, SAR, stochastic",
+                  "Tâm lý giao dịch, tâm lý đám đông và cách khắc phục.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircleOutlined className="mt-0.5 h-4 w-4 shrink-0 !text-[#0bce80]" />
@@ -74,13 +135,21 @@ export default function CoursePage() {
 
               <Row gutter={16}>
                 <Col span={12}>
-                  <button className="w-full py-2 rounded-lg text-white bg-[#263c54] hover:bg-[#263c54]/90">
+                  <button
+                    className="w-full py-2 rounded-lg text-white bg-[#263c54] hover:bg-[#263c54]/90"
+                    data-aos="fade-up-right"
+                    data-aos-duration="1000"
+                  >
                     <VideoCameraOutlined className="mr-2 h-4 w-4" />
                     Xem giới thiệu
                   </button>
                 </Col>
                 <Col span={12}>
-                  <button className="w-full py-2 rounded-lg text-white bg-[#0bce80] hover:bg-[#0bce80]/90">
+                  <button
+                    className="w-full py-2 rounded-lg text-white bg-[#0bce80] hover:bg-[#0bce80]/90"
+                    data-aos="fade-up-left"
+                    data-aos-duration="1000"
+                  >
                     Đăng ký ngay
                   </button>
                 </Col>
@@ -89,7 +158,7 @@ export default function CoursePage() {
           </Row>
 
           {/* Course Modules */}
-          <div className="mt-20">
+          {/* <div className="mt-20">
             <h2 className="text-[#0bce80] text-xl font-bold text-foreground md:text-2xl mb-4">
               Nội dung khóa học
             </h2>
@@ -152,7 +221,7 @@ export default function CoursePage() {
                 </Col>
               ))}
             </Row>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -164,23 +233,35 @@ export default function CoursePage() {
               <Tag
                 className="shrink-0 rounded-full px-3 py-1 text-xs font-semibold"
                 color="geekblue"
+                data-aos="zoom-out"
+                data-aos-duration="2000"
               >
                 Miễn phí
               </Tag>
-              <h3 className="text-balance text-2xl font-bold leading-tight mt-6">
+              <h3
+                className="text-balance text-2xl font-bold leading-tight mt-6"
+                data-aos="fade-down-right"
+                data-aos-duration="1000"
+              >
                 Kiến thức cho nhà đầu tư mới
               </h3>
-              <p className="mb-6 text-pretty leading-relaxed">
-                Khóa học miễn phí giúp người mới hiểu rõ cách hoạt động của thị
-                trường chứng khoán và bắt đầu hành trình đầu tư đúng đắn.
+              <p
+                className="mb-6 text-pretty leading-relaxed"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+              >
+                Khóa học miễn phí dành cho người mới bắt đầu, giúp bạn hiểu rõ
+                về thị trường chứng khoán và cách đầu tư an toàn.
               </p>
 
-              <ul className="mb-6 space-y-2">
+              <ul
+                className="mb-6 space-y-2"
+                data-aos="zoom-out-right"
+                data-aos-duration="1000"
+              >
                 {[
-                  "15+ video bài giảng cơ bản",
-                  "Hiểu về thị trường chứng khoán",
-                  "Hoàn toàn miễn phí",
-                  "Học mọi lúc mọi nơi",
+                  "Kiến thức nhập môn chứng khoán",
+                  "Phân tích tài chính doanh nghiệp và phân tích kỹ thuật cơ bản",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircleOutlined className="mt-0.5 h-4 w-4 shrink-0 !text-[#0bce80]" />
@@ -189,16 +270,24 @@ export default function CoursePage() {
                 ))}
               </ul>
 
-              <button className="w-full py-2 rounded-lg text-white bg-[#263c54] hover:bg-[#263c54]/90">
+              <button
+                className="w-full py-2 rounded-lg text-white bg-[#263c54] hover:bg-[#263c54]/90"
+                data-aos="zoom-out-up"
+                data-aos-duration="1000"
+              >
                 <BookOutlined className="mr-2 h-4 w-4" />
                 Học ngay miễn phí
               </button>
             </Col>
 
             <Col xs={24} md={12} className="order-1 md:order-2">
-              <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+              <div
+                className="relative h-[500px] rounded-lg overflow-hidden shadow-xl"
+                data-aos="zoom-in-left"
+                data-aos-duration="1000"
+              >
                 <Image
-                  src="/beginner-investment-education-learning.jpg"
+                  src="/beginner-investment-course.jpg"
                   alt="Free Course"
                   className="object-cover"
                 />
@@ -207,7 +296,7 @@ export default function CoursePage() {
           </Row>
 
           {/* Free Course Modules */}
-          <div className="mt-20">
+          {/* <div className="mt-20">
             <h2 className="text-[#0bce80] text-xl font-bold text-foreground md:text-2xl mb-4">
               Nội dung khóa học miễn phí
             </h2>
@@ -260,21 +349,108 @@ export default function CoursePage() {
                 </Col>
               ))}
             </Row>
-          </div>
+          </div> */}
         </div>
       </section>
 
+      <section style={{ padding: "4rem 1rem" }}>
+        <div className="container">
+          <Row gutter={[24, 24]}>
+            {filteredBlogs.map((blog) => (
+              <Col
+                xs={24}
+                md={12}
+                lg={8}
+                key={blog.id}
+                data-aos="fade-right"
+                data-aos-duration="1000"
+              >
+                <Card
+                  hoverable
+                  cover={
+                    <Image
+                      src={blog.imageUrl || "/placeholder.jpg"}
+                      alt={blog.title}
+                      className="max-h-48"
+                      style={{
+                        objectFit: "cover",
+                        borderTopLeftRadius: 8,
+                        borderTopRightRadius: 8,
+                        width: "100%",
+                        display: "block",
+                      }}
+                    />
+                  }
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      marginBottom: 8,
+                    }}
+                  >
+                    <Tag color="green">
+                      {blog.category.map((c: any) => c.name)}
+                    </Tag>
+                    <Text type="secondary" style={{ fontSize: 12 }}>
+                      {new Date(blog.timestamp).toLocaleString()}
+                    </Text>
+                  </div>
+                  <Title level={5}>{blog.title}</Title>
+                  <div
+                    className="prose lg:prose-xl line-clamp-3 overflow-hidden text-ellipsis my-3"
+                    dangerouslySetInnerHTML={{ __html: blog.description }}
+                  />
+
+                  <Link to={`/khoa-hoc/${blog.slug}`}>
+                    <button className="inline-flex items-center gap-1 text-green-600 font-medium hover:text-green-700 transition-colors cursor-pointer">
+                      Đọc tiếp
+                      <ArrowRightOutlined className="w-4 h-4" />
+                    </button>
+                  </Link>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+
+          {/* Pagination (chưa có API phân trang thật) */}
+          <div className="text-center mt-12">
+            <Pagination
+              current={1}
+              total={filteredBlogs.length}
+              pageSize={6}
+              showSizeChanger={false}
+            />
+          </div>
+        </div>
+      </section>
       {/* CTA Section */}
       <section className="py-20 bg-[#172f3b] text-white text-center">
-        <TeamOutlined className="!text-[#0bce80] text-5xl mb-6" />
-        <h2 className="text-2xl font-bold text-foreground md:text-3xl mb-4">
+        <TeamOutlined
+          className="!text-[#0bce80] text-5xl mb-6"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        />
+        <h2
+          className="text-2xl font-bold text-foreground md:text-3xl mb-4"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
           Tham gia cộng đồng học viên
         </h2>
-        <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+        <p
+          className="text-white/80 mb-8 max-w-2xl mx-auto"
+          data-aos="zoom-out-left"
+          data-aos-duration="1000"
+        >
           Hơn 500 học viên đã tin tưởng và đạt được kết quả tích cực với các
           khóa học của chúng tôi.
         </p>
-        <button className="px-6 py-2 rounded-lg text-black bg-[#0bce80] hover:bg-[#0bce80]/90">
+        <button
+          className="px-6 py-2 rounded-lg text-black bg-[#0bce80] hover:bg-[#0bce80]/90"
+          data-aos="zoom-in-right"
+          data-aos-duration="1000"
+        >
           <VideoCameraOutlined className="mr-2 h-4 w-4" />
           Xem khóa học trên YouTube
         </button>

@@ -12,7 +12,11 @@ export default function Profile() {
           />
         </section>
         <section className="mx-auto align-middle">
-          <p className="flex mt-4 text-xl font-bold text-slate-900 dark:text-white ">
+          <p
+            className="flex mt-4 text-xl font-bold text-slate-900 dark:text-white"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
             Mr. Tuấn - Kỹ sư đầu tư{" "}
             <span className="pl-2 text-2xl text-blue-700">
               <VscVerifiedFilled />
@@ -20,9 +24,11 @@ export default function Profile() {
           </p>
         </section>
         <section className="text-sm">
-          <p className="">Ra khơi 📌 và cùng nhau về bờ</p>
-          <p>
-            <span> </span> Tham gia để được Tuấn tư vấn nhé.
+          <p className="" data-aos="fade-right" data-aos-duration="1000">
+            Ra khơi 📌 và cùng nhau về bờ
+          </p>
+          <p data-aos="fade-left" data-aos-duration="1000">
+            Tham gia để được Tuấn tư vấn nhé.{" "}
           </p>
         </section>
         <section className=""></section>

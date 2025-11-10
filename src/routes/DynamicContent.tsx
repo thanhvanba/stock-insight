@@ -1,8 +1,8 @@
 //@ts-nocheck
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import PostDetail from "../page/menu/PostDetail";
-import PageDetail from "../page/menu/PageDetail";
+import PostDetail from "../components/menu/PostDetail";
+import PageDetail from "../components/menu/PageDetail";
 
 type ContentType = "post" | "page";
 interface ResolveResult {

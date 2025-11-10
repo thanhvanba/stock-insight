@@ -10,9 +10,19 @@ const api = axios.create({
 // Admin API functions
 export const adminAPI = {
   // Get all blogs (admin view)
-  getBlogs: async () => {
+  getAllBlogs: async () => {
     try {
       const response = await api.get("/blogs");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching admin blogs:", error);
+      throw error;
+    }
+  },
+
+  getBlogsByCategory: async (categoryID: string) => {
+    try {
+      const response = await api.get(`/blogs/category/${categoryID}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching admin blogs:", error);
@@ -66,7 +76,7 @@ export const adminAPI = {
     }
   },
 
-    getBlogBySlug: async (slug: string) => {
+  getBlogBySlug: async (slug: string) => {
     try {
       const response = await api.get(`/blogs/slug/${slug}`);
       return response.data;
