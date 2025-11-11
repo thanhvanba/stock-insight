@@ -206,7 +206,7 @@ export default function HomePage() {
                 data-aos-duration="1000"
               >
                 <Image
-                  src="/professional-asian-financial-advisor-portrait.jpg"
+                  src="/atuan.jpg"
                   alt="Anh Tuấn"
                   className="object-cover"
                 />
