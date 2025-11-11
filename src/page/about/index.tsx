@@ -44,9 +44,9 @@ export default function AboutPage() {
                 data-aos-duration="500"
               >
                 <img
-                  src="../src/assets/images/kim-tu-do.jpg"
+                  src="/kim-tu-do.jpg"
                   alt="Anh Tuấn"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-fill"
                 />
               </div>
             </Col>
