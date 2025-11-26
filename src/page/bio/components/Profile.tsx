@@ -27,7 +27,7 @@ export default function Profile() {
           <p className="" data-aos="fade-right" data-aos-duration="1000">
             Ra khơi 📌 và cùng nhau về bờ
           </p>
-          <p data-aos="fade-left" data-aos-duration="1000">
+          <p data-aos="fade-right" data-aos-duration="1000">
             Tham gia để được Tuấn tư vấn nhé.{" "}
           </p>
         </section>

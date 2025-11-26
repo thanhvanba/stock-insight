@@ -97,14 +97,14 @@ export default function CoursePage() {
               </Tag>
               <h3
                 className="text-balance text-2xl font-bold leading-tight mt-6"
-                data-aos="fade-down-left"
+                data-aos="fade-down-right"
                 data-aos-duration="1000"
               >
                 Phân tích kỹ thuật cơ bản đến nâng cao
               </h3>
               <p
                 className="mb-6 text-pretty leading-relaxed"
-                data-aos="fade-left"
+                data-aos="fade-right"
                 data-aos-duration="1000"
               >
                 Khóa học toàn diện về phân tích kỹ thuật, từ những kiến thức nền
@@ -147,7 +147,7 @@ export default function CoursePage() {
                 <Col span={12}>
                   <button
                     className="w-full py-2 rounded-lg text-white bg-[#0bce80] hover:bg-[#0bce80]/90"
-                    data-aos="fade-up-left"
+                    data-aos="fade-up-right"
                     data-aos-duration="1000"
                   >
                     Đăng ký ngay
@@ -283,7 +283,7 @@ export default function CoursePage() {
             <Col xs={24} md={12} className="order-1 md:order-2">
               <div
                 className="relative h-[500px] rounded-lg overflow-hidden shadow-xl"
-                data-aos="zoom-in-left"
+                data-aos="zoom-in-right"
                 data-aos-duration="1000"
               >
                 <Image
@@ -440,7 +440,7 @@ export default function CoursePage() {
         </h2>
         <p
           className="text-white/80 mb-8 max-w-2xl mx-auto"
-          data-aos="zoom-out-left"
+          data-aos="zoom-out-right"
           data-aos-duration="1000"
         >
           Hơn 500 học viên đã tin tưởng và đạt được kết quả tích cực với các

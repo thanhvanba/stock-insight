@@ -39,8 +39,8 @@ export const CallToActionAI = () => {
           </button>
 
           <button
-            className="px-6 py-3 bg-white text-gray-900 hover:bg-gray-200 rounded-md text-base font-medium w-full sm:w-auto"
-            data-aos="fade-up-left"
+            className="px-6 py-3 bg-white text-gray-900 hover:bg-gray-200 rounded-md text-base font-medium w-full "
+            data-aos="fade-right"
             data-aos-duration="1000"
           >
             HỆ THỐNG AI ĐẦU TƯ

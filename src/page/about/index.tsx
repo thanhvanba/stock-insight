@@ -40,7 +40,7 @@ export default function AboutPage() {
             <Col xs={24} md={12}>
               <div
                 className="h-[500px] overflow-hidden rounded-xl shadow-md"
-                data-aos="flip-left"
+                data-aos="flip-right"
                 data-aos-duration="500"
               >
                 <img
@@ -53,24 +53,24 @@ export default function AboutPage() {
             <Col xs={24} md={12}>
               <h2 className="font-medium text-5xl mb-6"></h2>
               <div className="space-y-3 text-lg text-gray-700">
-                <p data-aos="fade-left" data-aos-duration="500">
+                <p data-aos="fade-right" data-aos-duration="500">
                   Xin chào, tôi là Lê Tuấn. Tôi xin chia sẽ về hành trình thay
                   đổi để sống sung túc và bình an hơn. Từ một kỹ sư điện, sau
                   hơn 10 năm làm việc trong ngành điện, tôi đã chuyển sang nghề
                   tư vấn đầu tư tài chính từ năm 2015 đến nay.
                 </p>
-                <p data-aos="fade-left" data-aos-duration="1000">
+                <p data-aos="fade-right" data-aos-duration="1000">
                   Hơn 10 năm với nghề thi công & thiết kế điện đã rèn cho tôi :
                   sự chính xác, kiên nhẫn, kỷ luật và tư duy hệ thống
                 </p>
-                <p data-aos="fade-left" data-aos-duration="1500">
+                <p data-aos="fade-right" data-aos-duration="1500">
                   Sau đó 2015 đến với nghề tư vấn đầu tư, đúng đam mê, đúng môi
                   trường đã giúp tôi có nhiều thời gian hơn cho bản thân, gia
                   đình và tự chủ được thời gian Từ đó tâm trí thoải mái, sức
                   khoẻ tốt hơn nên có thể tạo ra nhiều giá trị, tài sản bền vững
                   hơn cho các con sau này.
                 </p>
-                <p data-aos="fade-left" data-aos-duration="2000">
+                <p data-aos="fade-right" data-aos-duration="2000">
                   Giờ tôi vẫn là kỹ sư nhưng là KỸ SƯ ĐẦU TƯ (TÀI CHÍNH): Thiết
                   kế & quản lý hệ thống tài chính cá nhân cho chính mình và nhà
                   đầu tư. Phù hợp với KIM TỨ ĐỒ : dùng tiền làm việc cho mình,
@@ -153,7 +153,7 @@ export default function AboutPage() {
         <div className="max-w-[1024px] mx-auto mt-8">
           <p
             className="text-center text-[24px]"
-            data-aos="fade-left"
+            data-aos="fade-right"
             data-aos-duration="1000"
           >
             Hệ thống đầu tư của tôi được xây dựng dựa trên 4 trụ cột chính:

@@ -235,7 +235,7 @@ export default function List() {
           <Card
             title="TOP cổ phiếu biến động"
             bodyStyle={{ padding: '12px' }}
-            data-aos="zoom-in-left"
+            data-aos="zoom-in-right"
             data-aos-duration="1000"
           >
             {movers && movers.length > 0 ? (

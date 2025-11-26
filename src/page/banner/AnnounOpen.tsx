@@ -24,7 +24,7 @@ export default function AnnounOpen() {
 
         <p
           className="text-[#1aa67c] font-extrabold text-xl sm:text-2xl md:text-4xl leading-tight max-w-4xl mx-auto px-4"
-          data-aos="fade-left"
+          data-aos="fade-right"
           data-aos-duration="1000"
         >
           Chỉ 5% người chiến thắng có thể kiếm được tiền từ 95% người thua lỗ

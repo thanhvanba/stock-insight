@@ -47,7 +47,7 @@ export const CallToActionZalo = () => (
         >
           <button
             className="px-6 py-3 rounded-md text-base font-semibold bg-white text-[#1890ff] hover:bg-gray-100 w-full sm:w-auto transition"
-            data-aos="fade-up-left"
+            data-aos="fade-up-right"
             data-aos-duration="1000"
           >
             THAM GIA CLB "SIÊU CỔ PHIẾU"

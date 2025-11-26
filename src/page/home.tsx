@@ -186,7 +186,7 @@ export default function HomePage() {
                 </Link>
                 <div
                   className="flex justify-center items-center"
-                  data-aos="zoom-out-left"
+                  data-aos="zoom-out-right"
                   data-aos-duration="2500"
                 >
                   <FaPhoneAlt size={32} color="#0bce80" />
@@ -292,7 +292,7 @@ export default function HomePage() {
             </h2>
             <p
               className="mx-auto max-w-2xl text-pretty text-muted-foreground leading-relaxed text-2xl"
-              data-aos="fade-left"
+              data-aos="fade-right"
               data-aos-duration="1000"
             >
               Đã được tổng hợp đầy đủ trong các khóa học dưới đây
@@ -382,7 +382,7 @@ export default function HomePage() {
             <Button
               className="group bg-transparent"
               onClick={() => navigate("/bai-viet")}
-              data-aos="fade-down-left"
+              data-aos="fade-down-right"
               data-aos-duration="1000"
             >
               Xem tất cả
@@ -550,7 +550,7 @@ export default function HomePage() {
             <div className="!space-y-6">
               <Card
                 className="bg-stone-50 !border-slate-200 shadow-lg p-6"
-                data-aos="zoom-in-left"
+                data-aos="zoom-in-right"
                 data-aos-duration="1000"
               >
                 <h3 className="mb-4 font-semibold text-card-foreground">
@@ -603,7 +603,7 @@ export default function HomePage() {
 
               <Card
                 className="!bg-[#263c54] !text-white !border-slate-200 shadow-lg p-6"
-                data-aos="zoom-out-left"
+                data-aos="zoom-out-right"
                 data-aos-duration="1000"
               >
                 <h3 className="mb-2 font-semibold">Tư vấn miễn phí</h3>

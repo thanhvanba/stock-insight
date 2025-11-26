@@ -94,7 +94,7 @@ export default function Footer() {
           </Col>
 
           {/* Contact */}
-          <Col xs={24} md={6} data-aos="fade-left" data-aos-duration="1000">
+          <Col xs={24} md={6} data-aos="fade-right" data-aos-duration="1000">
             <Title level={4} className="!text-white !mb-4">
               Liên hệ
             </Title>
