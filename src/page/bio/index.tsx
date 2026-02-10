@@ -39,14 +39,12 @@ export default function Bio() {
         }}
       >
         <div
-          className={`${
-            contentHeight > 580 ? "h-screen" : "h-full"
-          } flex justify-center font-poppins`}
+          className="flex justify-center font-poppins"
         >
           <div>
             <Profile />
             <Button />
-            <Footer isSticky={isSticky} />
+            {/* <Footer isSticky={isSticky} /> */}
           </div>
         </div>
       </div>

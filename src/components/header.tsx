@@ -8,6 +8,8 @@ import logo from "/src/assets/images/logo.png";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const location = useLocation();
 
   const navItems = [
@@ -23,6 +25,9 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -60,8 +65,8 @@ export default function Header() {
                     isActive
                       ? "text-[#0bce80] border-b-2 border-[#0bce80]"
                       : isScrolled
-                      ? "text-gray-800 hover:text-[#0bce80]"
-                      : "text-white hover:text-[#0bce80]"
+                        ? "text-gray-800 hover:text-[#0bce80]"
+                        : "text-white hover:text-[#0bce80]"
                   }`}
                 >
                   {item.label}
@@ -74,6 +79,13 @@ export default function Header() {
                 Liên hệ tư vấn
               </button>
             </Link>
+
+            <button
+              onClick={openModal}
+              className="bg-[#0bce80] text-white rounded-full px-5 py-2 font-medium text-sm transition-all duration-200 hover:bg-white hover:text-[#0bce80] border border-transparent hover:border-[#0bce80]"
+            >
+              Trở thành CTV
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,6 +138,46 @@ export default function Header() {
           </Menu>
         </Drawer>
       </nav>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 p-4">
+          <div
+            className="relative bg-white rounded-lg shadow-2xl max-w-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 text-2xl"
+            >
+              ✕
+            </button>
+
+            {/* Image content */}
+            <div>
+              <img
+                src="/ctv.jpg" // Thay bằng đường dẫn ảnh của bạn
+                alt="Khóa học YouTube"
+                className="w-full max-h-[70vh] object-contain rounded-lg"
+              />
+            </div>
+
+            {/* Optional description */}
+            <div className="p-4 border-t">
+              <div className="flex justify-center mt-3">
+                <a
+                  href="https://zalo.me/0777107264"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                >
+                  Trở thành một phần của đội ngũ Kỹ Sư Đầu Tư
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

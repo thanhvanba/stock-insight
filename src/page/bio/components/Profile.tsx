@@ -31,7 +31,10 @@ export default function Profile() {
             Tham gia để được Tuấn tư vấn nhé.{" "}
           </p>
         </section>
-        <section className=""></section>
+        <section className="">
+          {" "}
+          <img src="/cardvisit.jpg" />
+        </section>
       </div>
     </>
   );

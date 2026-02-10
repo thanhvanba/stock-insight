@@ -12,7 +12,7 @@ const pf2 = (x: number) => `${(x * 100).toFixed(2)}%`;
 export default function VNIndexWidget() {
   const { data, error, loading } = useLiveVnIndex(
     "https://bgapidatafeed.vps.com.vn/getlistindexdetail/10,02,11,03",
-    { intervalMs: 3000 }
+    { intervalMs: 3000 },
   );
 
   if (loading) return <div>Đang tải…</div>;

@@ -1,9 +1,9 @@
 export default function Button() {
   return (
     <>
-      <div className="max-w-sm mx-auto grid justify-center gap-4 my-5 font-bold">
+      <div className="relative max-w-sm mx-auto grid justify-center gap-4 my-5 font-bold mb-20">
         <a
-          href="https://kysaudautu.com"
+          href="https://zalo.me/0777107264"
           target="_blank"
           className={`rounded-2xl text-center border-amber-200 border-2 py-3 px-24 shadow-md shadow-amber-100 hover:scale-105 active:scale-95 transition
             text-slate-900 bg-white hover:bg-slate-100 active:bg-slate-200`}
@@ -13,7 +13,7 @@ export default function Button() {
           Tư vấn 1:1 🕵️
         </a>
         <a
-          href="https://kysaudautu.com"
+          href="https://openaccount.vps.com.vn/open-account?MKTID=U335"
           target="_blank"
           className={`rounded-2xl text-center border-amber-200 border-2 py-3 px-24 shadow-md shadow-amber-100 hover:scale-105 active:scale-95 transition
             text-slate-900 bg-white hover:bg-slate-100 active:bg-slate-200`}
@@ -32,7 +32,7 @@ export default function Button() {
           CLB SIÊU CỔ PHIẾU 🦾
         </a>
         <a
-          href="https://youtube.com"
+          href="https://kysudautu.com/bai-viet/chung-khoan-cho-nguoi-moi-bat-djau"
           target="_blank"
           className={`rounded-2xl text-center border-amber-200 border-2 py-3 px-24 shadow-md shadow-amber-100 hover:scale-105 active:scale-95 transition text-slate-900 bg-white hover:bg-slate-100 active:bg-slate-200`}
           data-aos="zoom-in-right"
@@ -41,7 +41,7 @@ export default function Button() {
           KHOÁ HỌC PHÂN TÍCH KỸ THUẬT CƠ BẢN MIỄN PHÍ 🗠
         </a>
         <a
-          href="https://youtube.com"
+          href="https://zalo.me/0777107264"
           target="_blank"
           className={`rounded-2xl text-center border-amber-200 border-2 py-3 px-24 shadow-md shadow-amber-100 hover:scale-105 active:scale-95 transition text-slate-900 bg-white hover:bg-slate-100 active:bg-slate-200`}
           data-aos="zoom-out-up"
@@ -49,7 +49,9 @@ export default function Button() {
         >
           KHOÁ HỌC PHÂN TÍCH KỸ THUẬT NÂNG CAO 🗠
         </a>
+       
       </div>
     </>
   );
 }
+       

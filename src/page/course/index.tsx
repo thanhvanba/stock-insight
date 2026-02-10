@@ -30,7 +30,7 @@ export default function CoursePage() {
       try {
         // Lấy danh sách bài viết
         const blogRes = await adminAPI.getBlogsByCategory(
-          "690ef204c89c48db2d4e4f54"
+          "690ef204c89c48db2d4e4f54",
         );
         const blogs = blogRes.data || [];
         setFilteredBlogs(blogs);
@@ -450,6 +450,7 @@ export default function CoursePage() {
           className="px-6 py-2 rounded-lg text-black bg-[#0bce80] hover:bg-[#0bce80]/90"
           data-aos="zoom-in-right"
           data-aos-duration="1000"
+          onClick={() => window.open("https://zalo.me/g/vvvtqz849", "_blank")}
         >
           <VideoCameraOutlined className="mr-2 h-4 w-4" />
           Xem khóa học trên YouTube

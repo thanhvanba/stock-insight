@@ -23,8 +23,8 @@ import {
   Typography,
 } from "antd";
 import { useEffect, useState } from "react";
-import { BsArrowRight, BsFillBookmarkHeartFill } from "react-icons/bs";
-import { FaLightbulb, FaPhoneAlt } from "react-icons/fa";
+import { BsArrowRight } from "react-icons/bs";
+import { FaPhoneAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import HeroSlider from "../components/HeroSlider";
 import VNIndexWidget from "../components/stock";
@@ -566,7 +566,7 @@ export default function HomePage() {
                         Điện thoại
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        0912 345 678
+                        077 710 7264
                       </div>
                     </div>
                   </div>
@@ -580,7 +580,7 @@ export default function HomePage() {
                         Email
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        contact@dautu.vn
+                        tuan.hvac2014@gmail.com
                       </div>
                     </div>
                   </div>

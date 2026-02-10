@@ -1,5 +1,5 @@
 import { Row, Col, Typography, Divider } from "antd";
-import { FaYoutube, FaEnvelope, FaPhone, FaTiktok } from "react-icons/fa";
+import { FaYoutube, FaEnvelope, FaPhone, FaTiktok, FaCalculator, FaFacebook } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
 const { Title, Text } = Typography;
@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container">
         <Row gutter={[32, 32]}>
           {/* About */}
-          <Col xs={24} md={6} data-aos="fade-right" data-aos-duration="1000">
+          <Col xs={24} sm={12} md={6} data-aos="fade-right" data-aos-duration="1000">
             <h3 className="text-2xl font-bold mb-4">KỸ SƯ ĐẦU TƯ</h3>
             <p className="text-sm mb-6 opacity-90 leading-relaxed">
               Hệ thống đầu tư chứng khoán kết hợp AI và kinh nghiệm thực chiến.
@@ -24,18 +24,18 @@ export default function Footer() {
                 <FaYoutube className="h-5 w-5" />
               </a>
               <a
-                href="mailto:tuan.hvac2014@gmail.com"
+                href="https://zalo.me/0777107264"
                 className="flex h-9 w-9 items-center justify-center rounded-lg !text-white !bg-[#0bce80] transition hover:bg-stone-500/30"
-                aria-label="Email"
+                aria-label="Zalo"
               >
-                <FaEnvelope className="h-5 w-5" />
+                <FaCalculator className="h-5 w-5" />
               </a>
               <a
-                href="tel:0777107264"
+                href="https://www.facebook.com/tuanper"
                 className="flex h-9 w-9 items-center justify-center rounded-lg !text-white !bg-[#0bce80] transition hover:bg-stone-500/30"
-                aria-label="Phone"
+                aria-label="Facebook"
               >
-                <FaPhone className="h-5 w-5" />
+                <FaFacebook className="h-5 w-5" />
               </a>
               <a
                 href="https://www.tiktok.com/@kysuchungkhoan84"
@@ -48,15 +48,15 @@ export default function Footer() {
           </Col>
 
           {/* Quick Links */}
-          <Col xs={24} md={6} data-aos="fade-up" data-aos-duration="1000">
+          <Col xs={24} sm={12} md={6} data-aos="fade-up" data-aos-duration="1000">
             <Title level={4} className="!text-white !mb-4">
               Liên kết
             </Title>
             <ul className="space-y-2 text-sm">
               {[
                 { href: "/gioi-thieu", label: "Giới thiệu" },
-                { href: "/bai-viet", label: "Bài viết" },
-                { href: "/diem-tin", label: "Điểm tin" },
+                { href: "/bai-viet", label: "Kiến thức" },
+                { href: "/tin-tuc", label: "Tin tức" },
                 { href: "/khoa-hoc", label: "Khoá học" },
               ].map((item) => (
                 <li key={item.href}>
@@ -71,8 +71,31 @@ export default function Footer() {
             </ul>
           </Col>
 
+          {/* <Col xs={24} sm={12} md={6} data-aos="fade-up" data-aos-duration="1000">
+             <Title level={4} className="!text-white !mb-4">
+               Liên kết
+             </Title>
+             <ul className="space-y-2 text-sm">
+               {[
+                 { href: "/gioi-thieu", label: "Giới thiệu" },
+                 { href: "/bai-viet", label: "Bài viết" },
+                 { href: "/diem-tin", label: "Điểm tin" },
+                 { href: "/khoa-hoc", label: "Khoá học" },
+               ].map((item) => (
+                 <li key={item.href}>
+                   <a
+                     href={item.href}
+                     className="!text-white/60 hover:!text-white transition"
+                   >
+                     {item.label}
+                   </a>
+                 </li>
+               ))}
+             </ul>
+           </Col> */}
+
           {/* Courses */}
-          <Col xs={24} md={6} data-aos="fade-up" data-aos-duration="1000">
+          <Col xs={24} sm={12} md={6} data-aos="fade-up" data-aos-duration="1000">
             <Title level={4} className="!text-white !mb-4">
               Khoá học
             </Title>
@@ -94,7 +117,7 @@ export default function Footer() {
           </Col>
 
           {/* Contact */}
-          <Col xs={24} md={6} data-aos="fade-right" data-aos-duration="1000">
+          <Col xs={24} sm={12} md={6} data-aos="fade-right" data-aos-duration="1000">
             <Title level={4} className="!text-white !mb-4">
               Liên hệ
             </Title>
