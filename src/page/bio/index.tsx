@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import Footer from "./components/Footer";
-import Profile from "./components/Profile";
 import Button from "./components/Button";
+import Profile from "./components/Profile";
 
 export default function Bio() {
   const [isSticky, setIsSticky] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
+  // const [contentHeight, setContentHeight] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -15,7 +14,7 @@ export default function Bio() {
 
       setIsSticky(windowHeight < 580 && documentHeight > windowHeight);
 
-      setContentHeight(windowHeight);
+      // setContentHeight(windowHeight);
     };
 
     handleResize(); // Set initial values

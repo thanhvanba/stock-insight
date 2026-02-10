@@ -1,14 +1,11 @@
 import {
   AimOutlined,
-  ArrowRightOutlined,
   ArrowUpOutlined,
   TrophyOutlined,
   UsergroupAddOutlined,
 } from "@ant-design/icons";
 import { Card, Col, Row, Typography } from "antd";
-import { useRef, useState } from "react";
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
@@ -24,8 +21,7 @@ const slides = [
 
 export default function AboutPage() {
   const { Title, Paragraph } = Typography;
-  const swiperRef = useRef<any>(null);
-  const [active, setActive] = useState(0);
+  const swiperRef = useRef(null);
   return (
     <main>
       {/* Hero Section */}
@@ -176,7 +172,6 @@ export default function AboutPage() {
             className="w-full overflow-hidden"
             loop
             ref={swiperRef}
-            onSlideChange={(s) => setActive(s.realIndex ?? s.activeIndex)}
           >
             {slides.map((slide, idx) => (
               <SwiperSlide key={idx}>

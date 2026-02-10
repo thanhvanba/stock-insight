@@ -38,9 +38,9 @@ export default function Header() {
             : "bg-transparent text-white"
         }`}
       >
-        <div className="container h-16 flex items-center justify-between">
+        <div className="container h-26 flex items-center justify-between">
           {/* Logo */}
-          <img src={logo} alt="Logo" className="h-16 w-16" />
+          <img src={logo} alt="Logo" className="h-26 w-26" />
           {/* <Link to="/" className="flex items-center gap-2">
             <h2 className="text-2xl font-semibold text-[#0bce80]">
               <center>
